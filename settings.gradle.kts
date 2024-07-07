@@ -21,4 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "F1C"
 include(":app")
- 
+include(":ui:home")
+include(":domain:home")
+include(":data:home")
