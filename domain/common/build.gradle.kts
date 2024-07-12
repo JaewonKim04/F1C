@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.kongkong.home"
+    namespace = "com.kongkong.common"
     compileSdk = 34
 
     defaultConfig {
@@ -33,7 +33,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":domain:common"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
