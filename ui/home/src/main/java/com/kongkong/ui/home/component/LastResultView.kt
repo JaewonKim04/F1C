@@ -30,7 +30,7 @@ import com.kongkong.ui.home.component.item.LastResultDriverItem
 
 @Composable
 fun LastResultView(
-    lastRaceResultSummary: LastRaceResultSummary
+    lastRaceResultSummary: LastRaceResultSummary?
 ) {
     Column(
         modifier = Modifier
@@ -56,13 +56,13 @@ fun LastResultView(
                 )
                 Spacer(3.dp)
                 Text(
-                    text = lastRaceResultSummary.raceName,
+                    text = lastRaceResultSummary?.raceName.orEmpty(),
                     style = Bold24,
                     color = darkGray
                 )
                 Spacer(3.dp)
                 Text(
-                    text = lastRaceResultSummary.sessionName,
+                    text = lastRaceResultSummary?.sessionName.orEmpty(),
                     style = Bold18,
                     color = darkGray
                 )
@@ -75,7 +75,7 @@ fun LastResultView(
             )
         }
         Spacer(10.dp)
-        lastRaceResultSummary.firstThreeDriverResultList.forEachIndexed { index, driver ->
+        lastRaceResultSummary?.firstThreeDriverResultList?.forEachIndexed { index, driver ->
             LastResultDriverItem(
                 index = index,
                 driver = driver
