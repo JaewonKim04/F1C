@@ -33,21 +33,21 @@ fun LastResultDriverItem(index: Int, driver: Driver) {
     }
     Row(verticalAlignment = Alignment.CenterVertically) {
         Box(
-            modifier = Modifier.size(width = 5.dp, height = 30.dp).background(
+            modifier = Modifier.size(width = 5.dp, height = 50.dp).background(
                 color = getColorFromHexCode(driver.teamColorHexCode),
                 shape = RoundedCornerShape(3.dp)
             )
         )
         Spacer(5.dp)
         AsyncImage(
-            modifier = Modifier.size(30.dp),
+            modifier = Modifier.size(45.dp),
             model = driver.headshotUrl,
             contentDescription = null
         )
         Spacer(5.dp)
         Text(
             modifier = Modifier.weight(1f),
-            text = driver.broadcastName,
+            text = driver.fullName,
             style = Bold14,
             color = darkGray
         )

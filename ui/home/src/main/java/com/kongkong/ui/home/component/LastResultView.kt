@@ -1,9 +1,9 @@
 package com.kongkong.ui.home.component
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
@@ -15,6 +15,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.kong.kong.core.component.Spacer
 import com.kong.kong.core.theme.Bold18
 import com.kong.kong.core.theme.Bold24
@@ -24,7 +25,7 @@ import com.kong.kong.core.theme.darkGray
 import com.kong.kong.core.theme.lightGray
 import com.kong.kong.core.theme.white
 import com.kongkong.home.model.LastRaceResultSummary
-import com.kongkong.ui.home.R
+import com.kong.kong.core.R
 import com.kongkong.ui.home.component.item.LastResultDriverItem
 
 @Composable
@@ -33,17 +34,18 @@ fun LastResultView(
 ) {
     Column(
         modifier = Modifier
+            .padding(16.dp)
             .background(color = white, shape = RoundedCornerShape(16.dp))
             .clip(RoundedCornerShape(16.dp))
+            .padding(16.dp)
     ) {
         Row(
             modifier = Modifier,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Image(
-                modifier = Modifier.size(40.dp),
-                imageVector = ImageVector.vectorResource(R.drawable.img_checkerd_flag),
-                contentDescription = null
+            Text(
+                text = "🏁",
+                fontSize = 40.sp
             )
             Spacer(5.dp)
             Column(modifier = Modifier.weight(1f)) {
@@ -67,7 +69,7 @@ fun LastResultView(
             }
             Icon(
                 modifier = Modifier.size(20.dp),
-                imageVector = ImageVector.vectorResource(com.kong.kong.core.R.drawable.baseline_chevron_right_24),
+                imageVector = ImageVector.vectorResource(R.drawable.baseline_chevron_right_24),
                 tint = black,
                 contentDescription = null
             )
@@ -78,6 +80,7 @@ fun LastResultView(
                 index = index,
                 driver = driver
             )
+            Spacer(dp = 3.dp)
         }
     }
 }
