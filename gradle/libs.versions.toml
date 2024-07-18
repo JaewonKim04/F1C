@@ -11,6 +11,7 @@ composeBom = "2024.06.00"
 appcompat = "1.7.0"
 material = "1.12.0"
 coil = "2.6.0"
+orbit = "9.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -32,6 +33,10 @@ material = { group = "com.google.android.material", name = "material", version.r
 
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 
+orbit-core = { group = "org.orbit-mvi", name = "orbit-core", version.ref = "orbit" }
+orbit-viewmodel = { group = "org.orbit-mvi", name = "orbit-viewmodel", version.ref = "orbit" }
+orbit-compose = { group = "org.orbit-mvi", name = "orbit-compose", version.ref = "orbit" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
@@ -47,4 +52,9 @@ android = [
     "androidx-ui-tooling-preview",
     "androidx-material3",
     "androidx-appcompat"
+]
+orbit = [
+    "orbit-core",
+    "orbit-viewmodel",
+    "orbit-compose"
 ]

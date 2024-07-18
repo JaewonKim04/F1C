@@ -10,14 +10,14 @@ import androidx.compose.ui.unit.sp
 val Regular24: TextStyle
     @Composable get() = TextStyle(
         fontFamily = FontFamily.Default,
-        fontSize = with(LocalDensity.current) { (30 / fontScale).sp },
+        fontSize = with(LocalDensity.current) { (24 / fontScale).sp },
         fontWeight = FontWeight.Medium
     )
 
 val Bold24: TextStyle
     @Composable get() = TextStyle(
         fontFamily = FontFamily.Default,
-        fontSize = with(LocalDensity.current) { (30 / fontScale).sp },
+        fontSize = with(LocalDensity.current) { (24 / fontScale).sp },
         fontWeight = FontWeight.Bold
     )
 
