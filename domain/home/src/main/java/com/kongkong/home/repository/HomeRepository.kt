@@ -4,5 +4,5 @@ import com.kongkong.home.model.LastRaceResultSummary
 
 interface HomeRepository {
 
-    fun getLastRaceSummary(): LastRaceResultSummary
+    suspend fun getLastRaceSummary(): LastRaceResultSummary
 }

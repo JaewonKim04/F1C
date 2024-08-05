@@ -54,6 +54,8 @@ android {
 
 dependencies {
 
+    implementation(project(":data:home"))
+
     implementation(project(":ui:core"))
     implementation(project(":ui:home"))
 

@@ -17,6 +17,13 @@ class HomeViewModel @Inject constructor(
         get() = container(HomeState())
 
     fun start() {
-        getLastRaceResultSummaryUseCase()
+        getLastRaceResultSummary()
+    }
+
+    private fun getLastRaceResultSummary() = intent {
+        val raceResult = getLastRaceResultSummaryUseCase()
+        reduce {
+            state.copy(lastRaceResultSummary = raceResult)
+        }
     }
 }
