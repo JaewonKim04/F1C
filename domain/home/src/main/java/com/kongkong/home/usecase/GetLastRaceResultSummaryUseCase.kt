@@ -1,6 +1,8 @@
 package com.kongkong.home.usecase
 
-class GetLastRaceResultSummaryUseCase {
+import javax.inject.Inject
+
+class GetLastRaceResultSummaryUseCase @Inject constructor() {
 
     operator fun invoke() {
 

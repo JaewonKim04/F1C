@@ -1,9 +1,12 @@
 package com.kongkong.ui.home
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.kongkong.ui.home.component.LastResultView
 import org.orbitmvi.orbit.compose.collectAsState
@@ -16,9 +19,13 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel()) {
         viewModel.start()
     }
 
-    Column {
-        LastResultView(
-            lastRaceResultSummary = state.lastRaceResultSummary
-        )
+    Scaffold { paddingValues ->
+        Column(
+            modifier = Modifier.padding(paddingValues)
+        ) {
+            LastResultView(
+                lastRaceResultSummary = state.lastRaceResultSummary
+            )
+        }
     }
 }
