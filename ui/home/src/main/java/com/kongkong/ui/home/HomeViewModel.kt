@@ -13,8 +13,7 @@ class HomeViewModel @Inject constructor(
     private val getLastRaceResultSummaryUseCase: GetLastRaceResultSummaryUseCase
 ) : ViewModel(), ContainerHost<HomeState, HomeSideEffect> {
 
-    override val container: Container<HomeState, HomeSideEffect>
-        get() = container(HomeState())
+    override val container: Container<HomeState, HomeSideEffect> = container(HomeState())
 
     fun start() {
         getLastRaceResultSummary()
