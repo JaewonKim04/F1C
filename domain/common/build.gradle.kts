@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.kongkong.common"
+    namespace = "com.kong.common"
     compileSdk = 34
 
     defaultConfig {

@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.kongkong.ui.home"
+    namespace = "com.kong.ui.home"
     compileSdk = 34
 
     defaultConfig {

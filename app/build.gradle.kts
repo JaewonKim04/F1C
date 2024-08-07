@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "com.kongkong.f1c"
+    namespace = "com.kong.f1c"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.kongkong.f1c"
+        applicationId = "com.kong.f1c"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
