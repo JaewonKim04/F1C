@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/domain/common" />
             <option value="$PROJECT_DIR$/domain/home" />
+            <option value="$PROJECT_DIR$/domain/result" />
             <option value="$PROJECT_DIR$/ui" />
             <option value="$PROJECT_DIR$/ui/core" />
             <option value="$PROJECT_DIR$/ui/home" />

@@ -36,6 +36,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":domain:result"))
 
     implementation(libs.bundles.android)
     implementation(libs.androidx.activity.compose)

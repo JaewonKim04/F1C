@@ -1,11 +1,10 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
-    id("kotlin-kapt")
 }
 
 android {
-    namespace = "com.kong.home"
+    namespace = "com.kong.result"
     compileSdk = 34
 
     defaultConfig {
@@ -35,7 +34,4 @@ android {
 
 dependencies {
     api(project(":domain:common"))
-
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
 }
