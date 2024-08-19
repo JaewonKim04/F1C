@@ -25,4 +25,8 @@ class HomeViewModel @Inject constructor(
             state.copy(lastRaceResultSummary = raceResult)
         }
     }
+
+    fun onClickLastRaceResult() = intent {
+        postSideEffect(HomeSideEffect.StartRaceResult)
+    }
 }

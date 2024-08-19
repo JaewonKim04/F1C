@@ -8,15 +8,29 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import com.kong.navigate.NavScreens
 import com.kong.ui.home.component.LastResultView
 import org.orbitmvi.orbit.compose.collectAsState
+import org.orbitmvi.orbit.compose.collectSideEffect
 
 @Composable
-fun HomeScreen(viewModel: HomeViewModel = hiltViewModel()) {
+fun HomeScreen(
+    navController: NavController,
+    viewModel: HomeViewModel = hiltViewModel()
+) {
     val state by viewModel.collectAsState()
 
     LaunchedEffect(Unit) {
         viewModel.start()
+    }
+
+    viewModel.collectSideEffect {
+        when(it) {
+            is HomeSideEffect.StartRaceResult -> {
+                navController.navigate(NavScreens.RACE_RESULT.name)
+            }
+        }
     }
 
     Scaffold { paddingValues ->
@@ -24,7 +38,8 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel()) {
             modifier = Modifier.padding(paddingValues)
         ) {
             LastResultView(
-                lastRaceResultSummary = state.lastRaceResultSummary
+                lastRaceResultSummary = state.lastRaceResultSummary,
+                onClick = viewModel::onClickLastRaceResult
             )
         }
     }

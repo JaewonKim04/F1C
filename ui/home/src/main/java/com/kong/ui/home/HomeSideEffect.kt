@@ -1,4 +1,6 @@
 package com.kong.ui.home
 
-class HomeSideEffect {
+sealed class HomeSideEffect {
+
+    object StartRaceResult : HomeSideEffect()
 }

@@ -1,17 +1,14 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.hilt.android)
-    id("kotlin-kapt")
 }
 
 android {
-    namespace = "com.kong.ui.result"
+    namespace = "com.kong.navigate"
     compileSdk = 34
 
     defaultConfig {
-        minSdk = 26
+        minSdk = 24
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -36,23 +33,11 @@ android {
 }
 
 dependencies {
-    implementation(project(":navigate"))
 
-    implementation(project(":ui:core"))
-
-    implementation(project(":domain:result"))
-
-    implementation(libs.bundles.android)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-
-    implementation(libs.androidx.compose.navigation)
-
-    implementation(libs.hilt.android)
-    implementation(libs.hilt.navigation)
-    kapt(libs.hilt.compiler)
-
-    implementation(libs.bundles.orbit)
-
-    implementation(libs.coil.compose)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 }

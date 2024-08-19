@@ -1,6 +1,7 @@
 package com.kong.ui.home.component
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
@@ -30,7 +31,8 @@ import com.kong.ui.home.component.item.LastResultDriverItem
 
 @Composable
 fun LastResultView(
-    lastRaceResultSummary: LastRaceResultSummary?
+    lastRaceResultSummary: LastRaceResultSummary?,
+    onClick: () -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -38,6 +40,7 @@ fun LastResultView(
             .background(color = white, shape = RoundedCornerShape(16.dp))
             .clip(RoundedCornerShape(16.dp))
             .padding(16.dp)
+            .clickable { onClick() }
     ) {
         Row(
             modifier = Modifier,

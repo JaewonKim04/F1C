@@ -42,6 +42,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":navigate"))
+
     implementation(project(":ui:core"))
 
     implementation(project(":domain:home"))
@@ -50,7 +52,7 @@ dependencies {
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
 
-    implementation(libs.androidx.navigation)
+    implementation(libs.androidx.compose.navigation)
 
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation)

@@ -56,11 +56,15 @@ dependencies {
 
     implementation(project(":data:home"))
 
+    implementation(project(":navigate"))
+
     implementation(project(":ui:core"))
     implementation(project(":ui:home"))
+    implementation(project(":ui:result"))
 
     implementation(libs.bundles.android)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.compose.navigation)
     implementation(platform(libs.androidx.compose.bom))
 
     implementation(libs.hilt.android)
