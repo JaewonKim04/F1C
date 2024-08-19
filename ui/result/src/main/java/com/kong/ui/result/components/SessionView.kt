@@ -3,6 +3,7 @@ package com.kong.ui.result.components
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.kong.common.Session
 import com.kong.ui.core.component.Spacer
@@ -16,8 +17,11 @@ import com.kong.ui.core.theme.lightGray
 import com.kong.ui.core.util.DateUtil.toDisplayDate
 
 @Composable
-fun SessionView(session: Session?) {
-    Column {
+fun SessionView(
+    modifier: Modifier = Modifier,
+    session: Session?
+) {
+    Column(modifier = modifier) {
         Text(
             text = "경기결과",
             style = Regular14,

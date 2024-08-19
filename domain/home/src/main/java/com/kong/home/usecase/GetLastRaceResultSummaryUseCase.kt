@@ -8,5 +8,5 @@ class GetLastRaceResultSummaryUseCase @Inject constructor(
     private val homeRepository: HomeRepository
 ) {
 
-    operator suspend fun invoke(): LastRaceResultSummary = homeRepository.getLastRaceSummary()
+    suspend operator fun invoke(): LastRaceResultSummary = homeRepository.getLastRaceSummary()
 }
