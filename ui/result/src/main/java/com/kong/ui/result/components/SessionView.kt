@@ -16,7 +16,7 @@ import com.kong.ui.core.theme.lightGray
 import com.kong.ui.core.util.DateUtil.toDisplayDate
 
 @Composable
-fun SessionView(session: Session) {
+fun SessionView(session: Session?) {
     Column {
         Text(
             text = "경기결과",
@@ -25,25 +25,25 @@ fun SessionView(session: Session) {
         )
         Spacer(dp = 4.dp)
         Text(
-            text = session.grandprixName,
+            text = session?.grandprixName.orEmpty(),
             style = Bold24,
             color = black
         )
         Text(
-            text = session.sessionName,
+            text = session?.sessionName.orEmpty(),
             style = Bold18,
             color = black
         )
 
         Spacer(dp = 8.dp)
         Text(
-            text = session.circuitName,
+            text = session?.circuitName.orEmpty(),
             style = Regular18,
             color = gray
         )
         Spacer(dp = 5.dp)
         Text(
-            text = session.startDate.toDisplayDate(),
+            text = session?.startDate.toDisplayDate().orEmpty(),
             style = Regular18,
             color = gray
         )

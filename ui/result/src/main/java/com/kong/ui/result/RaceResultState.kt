@@ -5,8 +5,8 @@ import com.kong.result.model.DriverResult
 
 data class RaceResultState(
 
-    val session: Session,
-    val driverResults: List<DriverResult>,
+    val session: Session? = null,
+    val driverResults: List<DriverResult> = emptyList(),
 
     val selectedResultType: SelectedResultType = SelectedResultType.RANK
 ) {
