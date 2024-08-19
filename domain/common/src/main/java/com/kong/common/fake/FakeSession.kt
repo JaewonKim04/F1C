@@ -10,7 +10,7 @@ object FakeSession {
         sessionType = SessionType.RACE,
         grandprixName = "Bahrain Grand Prix",
         circuitName = "Sakhir Circuit",
-        countryCode = "BHR",
+        countryCode = "BH",
         startDate = LocalDateTime.of(2024, 4, 23, 13, 0)
     )
 }
