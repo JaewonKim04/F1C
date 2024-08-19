@@ -36,11 +36,10 @@ fun LastResultView(
 ) {
     Column(
         modifier = Modifier
-            .padding(16.dp)
             .background(color = white, shape = RoundedCornerShape(16.dp))
             .clip(RoundedCornerShape(16.dp))
-            .padding(16.dp)
             .clickable { onClick() }
+            .padding(16.dp)
     ) {
         Row(
             modifier = Modifier,
