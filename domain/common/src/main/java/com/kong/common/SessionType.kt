@@ -1,8 +1,10 @@
 package com.kong.common
 
-enum class SessionType {
+enum class SessionType(val displayName: String) {
 
-    RACE,
-    QUALIFYING,
-    PRACTICE
+    RACE("Race"),
+    SPRINT("Sprint"),
+    SPRINT_QUALIFYING("Sprint Qualifying"),
+    QUALIFYING("Qualifying"),
+    PRACTICE("Practice")
 }

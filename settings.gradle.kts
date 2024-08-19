@@ -23,7 +23,7 @@ rootProject.name = "F1C"
 include(":app")
 include(":ui:home")
 include(":domain:home")
-include(":data:home")
+include(":data:result")
 include(":domain:common")
 include(":ui:core")
 include(":ui:result")

@@ -34,7 +34,7 @@ fun SessionView(
             color = black
         )
         Text(
-            text = session?.sessionName.orEmpty(),
+            text = session?.sessionType?.displayName.orEmpty(),
             style = Bold18,
             color = black
         )

@@ -54,8 +54,7 @@ android {
 
 dependencies {
 
-    implementation(project(":data:home"))
-
+    implementation(project(":data:result"))
     implementation(project(":navigate"))
 
     implementation(project(":ui:core"))
