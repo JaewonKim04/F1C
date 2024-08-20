@@ -2,6 +2,7 @@ package com.kong.ui.result
 
 import androidx.lifecycle.ViewModel
 import com.kong.result.usecase.GetSessionByKeyUseCase
+import com.kong.ui.result.components.ResultType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import org.orbitmvi.orbit.Container
 import org.orbitmvi.orbit.ContainerHost
@@ -26,5 +27,9 @@ class RaceResultViewModel @Inject constructor(
         reduce {
             state.copy(session = session)
         }
+    }
+
+    fun onClickResultTypeTab(resultType: ResultType) = intent {
+        reduce { state.copy(selectedResultType = resultType) }
     }
 }
