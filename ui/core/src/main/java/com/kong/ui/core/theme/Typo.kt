@@ -35,6 +35,20 @@ val Bold18: TextStyle
         fontWeight = FontWeight.Bold
     )
 
+val Regular16: TextStyle
+    @Composable get() = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontSize = with(LocalDensity.current) { (16 / fontScale).sp },
+        fontWeight = FontWeight.Medium
+    )
+
+val Bold16: TextStyle
+    @Composable get() = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontSize = with(LocalDensity.current) { (16 / fontScale).sp },
+        fontWeight = FontWeight.Bold
+    )
+
 val Regular14: TextStyle
     @Composable get() = TextStyle(
         fontFamily = FontFamily.Default,

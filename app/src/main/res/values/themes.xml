@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.F1C" parent="@style/Theme.AppCompat.NoActionBar" />
+    <style name="Theme.F1C" parent="@style/Theme.AppCompat.NoActionBar" >
+        <item name="android:colorPrimary">#FF1801</item>
+        <item name="android:colorAccent">#FF1801</item>
+        <item name="android:colorPrimaryDark">#d11502</item>
+    </style>
 </resources>
