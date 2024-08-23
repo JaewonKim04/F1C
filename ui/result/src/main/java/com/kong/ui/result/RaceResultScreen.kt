@@ -3,11 +3,6 @@ package com.kong.ui.result
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Tab
-import androidx.compose.material3.TabRow
-import androidx.compose.material3.TabRowDefaults
-import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -18,11 +13,6 @@ import androidx.navigation.NavController
 import com.kong.navigate.NavScreens
 import com.kong.ui.core.component.Spacer
 import com.kong.ui.core.component.TopBar
-import com.kong.ui.core.theme.Bold16
-import com.kong.ui.core.theme.Regular16
-import com.kong.ui.core.theme.black
-import com.kong.ui.core.theme.lightGray
-import com.kong.ui.core.theme.primary
 import com.kong.ui.result.components.RaceAnalyzeView
 import com.kong.ui.result.components.RaceRankView
 import com.kong.ui.result.components.ResultType
