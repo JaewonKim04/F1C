@@ -1,7 +1,9 @@
 package com.kong.ui.result.components.item
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -16,6 +18,7 @@ import coil.compose.AsyncImage
 import com.kong.result.model.DriverResult
 import com.kong.ui.core.component.Spacer
 import com.kong.ui.core.theme.Bold16
+import com.kong.ui.core.theme.Regular12
 import com.kong.ui.core.theme.Regular14
 import com.kong.ui.core.theme.black
 import com.kong.ui.core.theme.getColorFromHexCode
@@ -35,7 +38,7 @@ fun DriverResultItem(
     ) {
         Box(
             modifier = Modifier
-                .size(width = 5.dp, height = 36.dp)
+                .size(width = 5.dp, height = 40.dp)
                 .background(
                     color = getColorFromHexCode(driver.teamColorHexCode),
                     shape = RoundedCornerShape(3.dp)
@@ -50,12 +53,22 @@ fun DriverResultItem(
 
         Spacer(dp = 10.dp)
 
-        Text(
+        Column(
             modifier = Modifier.weight(1f),
-            text = driver.fullName,
-            style = Bold16,
-            color = black
-        )
+            verticalArrangement = Arrangement.Center
+        ) {
+            Text(
+                text = driver.fullName,
+                style = Bold16,
+                color = black
+            )
+            Spacer(dp = 2.dp)
+            Text(
+                text = driver.teamName,
+                style = Regular12,
+                color = gray
+            )
+        }
 
         Text(
             text = rankText,
