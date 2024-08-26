@@ -22,12 +22,20 @@ class RaceResultViewModel @Inject constructor(
 
     fun start(key: String) {
         getSessionByKey(key)
+        getDriverResultsByKey(key)
     }
 
     private fun getSessionByKey(key: String) = intent {
         val session = getSessionByKeyUseCase(key)
         reduce {
             state.copy(session = session)
+        }
+    }
+
+    private fun getDriverResultsByKey(key: String) = intent {
+        val driverResults = getDriverResultsUseCase(key)
+        reduce {
+            state.copy(driverResults = driverResults)
         }
     }
 

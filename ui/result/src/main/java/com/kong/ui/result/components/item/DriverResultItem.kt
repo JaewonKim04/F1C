@@ -3,6 +3,7 @@ package com.kong.ui.result.components.item
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
@@ -11,6 +12,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.kong.result.model.DriverResult
 import com.kong.ui.core.component.Spacer
 import com.kong.ui.core.theme.Bold16
@@ -27,14 +29,23 @@ fun DriverResultItem(
 ) {
     val driver = remember(driverResult) { driverResult.driver }
     val rankText = remember(index) { RankUtil.getRankText(index) }
-    Row(verticalAlignment = Alignment.CenterVertically) {
+    Row(
+        modifier = Modifier.padding(vertical = 3.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
         Box(
             modifier = Modifier
-                .size(width = 5.dp, height = 40.dp)
+                .size(width = 5.dp, height = 36.dp)
                 .background(
                     color = getColorFromHexCode(driver.teamColorHexCode),
                     shape = RoundedCornerShape(3.dp)
                 )
+        )
+
+        AsyncImage(
+            modifier = Modifier.size(40.dp),
+            model = driver.headshotUrl,
+            contentDescription = null
         )
 
         Spacer(dp = 10.dp)

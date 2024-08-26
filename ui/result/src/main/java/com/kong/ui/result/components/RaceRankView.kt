@@ -1,15 +1,19 @@
 package com.kong.ui.result.components
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.kong.result.model.DriverResult
+import com.kong.ui.core.component.Spacer
 import com.kong.ui.result.components.item.DriverResultItem
 
 @Composable
 fun RaceRankView(driverResults: List<DriverResult>) {
-    Column {
+    Column(modifier = Modifier.padding(horizontal = 16.dp)) {
         driverResults.forEachIndexed { index, driverResult ->
+            Spacer(dp = 6.dp)
             DriverResultItem(
                 index = index,
                 driverResult = driverResult
