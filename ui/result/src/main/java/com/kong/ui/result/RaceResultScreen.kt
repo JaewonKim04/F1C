@@ -1,7 +1,9 @@
 package com.kong.ui.result
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -20,6 +22,7 @@ import com.kong.ui.result.components.SessionView
 import com.kong.ui.result.components.tab.RaceResultTabRow
 import org.orbitmvi.orbit.compose.collectAsState
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun RaceResultScreen(
     navController: NavController,
@@ -43,29 +46,38 @@ fun RaceResultScreen(
             )
         }
     ) { paddingValues ->
-        Column(
+        LazyColumn(
             modifier = Modifier
                 .padding(paddingValues)
         ) {
-            Spacer(dp = 20.dp)
-            SessionView(
-                modifier = Modifier.padding(horizontal = 16.dp),
-                session = state.session
-            )
-
-            Spacer(dp = 10.dp)
-            RaceResultTabRow(
-                selectedResultType = state.selectedResultType,
-                onClickTab = viewModel::onClickResultTypeTab
-            )
-
-            when (state.selectedResultType) {
-                ResultType.RANK -> {
-                    RaceRankView()
+            item {
+                Column {
+                    Spacer(dp = 20.dp)
+                    SessionView(
+                        modifier = Modifier.padding(horizontal = 16.dp),
+                        session = state.session
+                    )
+                    Spacer(dp = 10.dp)
                 }
+            }
 
-                ResultType.ANALYZE -> {
-                    RaceAnalyzeView()
+
+            stickyHeader {
+                RaceResultTabRow(
+                    selectedResultType = state.selectedResultType,
+                    onClickTab = viewModel::onClickResultTypeTab
+                )
+            }
+
+            item {
+                when (state.selectedResultType) {
+                    ResultType.RANK -> {
+                        RaceRankView(state.driverResults)
+                    }
+
+                    ResultType.ANALYZE -> {
+                        RaceAnalyzeView()
+                    }
                 }
             }
         }

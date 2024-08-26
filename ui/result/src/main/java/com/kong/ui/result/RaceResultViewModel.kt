@@ -1,6 +1,7 @@
 package com.kong.ui.result
 
 import androidx.lifecycle.ViewModel
+import com.kong.result.usecase.GetDriverResultsUseCase
 import com.kong.result.usecase.GetSessionByKeyUseCase
 import com.kong.ui.result.components.ResultType
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -11,7 +12,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RaceResultViewModel @Inject constructor(
-    private val getSessionByKeyUseCase: GetSessionByKeyUseCase
+    private val getSessionByKeyUseCase: GetSessionByKeyUseCase,
+    private val getDriverResultsUseCase: GetDriverResultsUseCase
 ) : ViewModel(),
     ContainerHost<RaceResultState, RaceResultSideEffect> {
 
