@@ -2,6 +2,8 @@ package com.kong.f1c.ui
 
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -15,7 +17,9 @@ fun MainScreen() {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = NavScreens.HOME.name
+        startDestination = NavScreens.HOME.name,
+        enterTransition = { fadeIn(tween(200)) },
+        exitTransition = { fadeOut(tween(200)) }
     ) {
         composable(route = NavScreens.HOME.name) {
             HomeScreen(navController)
