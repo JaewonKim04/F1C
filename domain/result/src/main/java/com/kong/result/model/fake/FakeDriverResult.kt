@@ -97,7 +97,7 @@ object FakeDriverResult {
                 broadcastName = "TSU",
                 headshotUrl = "https://www.formula1.com/content/dam/fom-website/drivers/Y/YUKTSU01_Yuki_Tsunoda/yuktsu01.png.transform/1col/image.png",
                 teamName = "RB",
-                teamColorHexCode = "5E8FAA"
+                teamColorHexCode = "6692FF"
             ),
             raceTime = LocalDateTime.now(),
             interval = 0.312f,
