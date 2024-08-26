@@ -1,5 +1,7 @@
 package com.kong.f1c.ui
 
+import androidx.compose.animation.AnimatedContentTransitionScope
+import androidx.compose.animation.core.tween
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -19,7 +21,21 @@ fun MainScreen() {
             HomeScreen(navController)
         }
 
-        composable(route = NavScreens.RACE_RESULT.name) {
+        composable(
+            route = NavScreens.RACE_RESULT.name,
+            enterTransition = {
+                slideIntoContainer(
+                    towards = AnimatedContentTransitionScope.SlideDirection.Start,
+                    animationSpec = tween(200)
+                )
+            },
+            exitTransition = {
+                slideOutOfContainer(
+                    towards = AnimatedContentTransitionScope.SlideDirection.End,
+                    animationSpec = tween(200)
+                )
+            }
+        ) {
             RaceResultScreen(navController)
         }
     }
