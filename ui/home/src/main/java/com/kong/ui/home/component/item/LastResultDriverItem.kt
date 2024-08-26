@@ -2,6 +2,7 @@ package com.kong.ui.home.component.item
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -20,6 +21,8 @@ import com.kong.ui.core.theme.darkGray
 import com.kong.ui.core.theme.getColorFromHexCode
 import com.kong.ui.core.theme.lightGray
 import com.kong.common.Driver
+import com.kong.ui.core.theme.Regular12
+import com.kong.ui.core.theme.gray
 import com.kong.ui.core.util.RankUtil
 
 @Composable
@@ -28,7 +31,7 @@ fun LastResultDriverItem(index: Int, driver: Driver) {
     Row(verticalAlignment = Alignment.CenterVertically) {
         Box(
             modifier = Modifier
-                .size(width = 5.dp, height = 50.dp)
+                .size(width = 5.dp, height = 45.dp)
                 .background(
                     color = getColorFromHexCode(driver.teamColorHexCode),
                     shape = RoundedCornerShape(3.dp)
@@ -40,13 +43,21 @@ fun LastResultDriverItem(index: Int, driver: Driver) {
             model = driver.headshotUrl,
             contentDescription = null
         )
-        Spacer(5.dp)
-        Text(
-            modifier = Modifier.weight(1f),
-            text = driver.fullName,
-            style = Bold14,
-            color = darkGray
-        )
+        Spacer(10.dp)
+        Column(modifier = Modifier.weight(1f)) {
+            Text(
+                text = driver.fullName,
+                style = Bold14,
+                color = darkGray
+            )
+            Spacer(dp = 2.dp)
+            Text(
+                text = driver.teamName,
+                style = Regular12,
+                color = gray
+            )
+        }
+
         Text(
             text = rankText,
             style = Regular14,

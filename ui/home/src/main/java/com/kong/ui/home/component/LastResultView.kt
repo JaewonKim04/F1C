@@ -82,7 +82,7 @@ fun LastResultView(
                 index = index,
                 driver = driver
             )
-            Spacer(dp = 3.dp)
+            Spacer(dp = 8.dp)
         }
     }
 }
