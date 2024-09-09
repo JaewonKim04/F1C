@@ -54,6 +54,7 @@ android {
 
 dependencies {
 
+    implementation(project(":network"))
     implementation(project(":data:result"))
     implementation(project(":navigate"))
 
