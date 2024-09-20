@@ -9,5 +9,5 @@ enum class SessionType(val displayName: String) {
     PRACTICE("Practice")
 }
 
-fun String?.toModel() =
+fun String?.toSessionType() =
     SessionType.entries.find { it.name.equals(this, ignoreCase = true) } ?: SessionType.RACE

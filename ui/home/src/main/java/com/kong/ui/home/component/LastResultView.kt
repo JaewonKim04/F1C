@@ -31,7 +31,7 @@ import com.kong.ui.home.component.item.LastResultDriverItem
 
 @Composable
 fun LastResultView(
-    lastRaceResultSummary: com.kong.result.model.LastRaceResultSummary?,
+    lastRaceResultSummary: LastRaceResultSummary?,
     onClick: () -> Unit
 ) {
     Column(

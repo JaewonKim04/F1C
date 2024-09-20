@@ -1,8 +1,7 @@
 package com.kong.home.repository
 
 import com.kong.common.Session
-import com.kong.common.fake.FakeSession
-import com.kong.common.toModel
+import com.kong.common.toSessionType
 import com.kong.home.datasource.ResultRemoteDataSource
 import com.kong.result.model.DriverResult
 import com.kong.result.model.LastRaceResultSummary
@@ -14,7 +13,9 @@ class ResultRepositoryImpl @Inject constructor(
     private val resultRemoteDataSource: ResultRemoteDataSource
 ) : ResultRepository {
 
-    override suspend fun getSession(sessionKey: Long): Session = FakeSession.getFakeSession()
+    override suspend fun getSession(sessionKey: Long): Session {
+        return resultRemoteDataSource.getSession(sessionKey).toModel()
+    }
 
     override suspend fun getDriverResults(sessionKey: Long): List<DriverResult> {
         return resultRemoteDataSource.getDriverPositions(sessionKey).map {
@@ -34,7 +35,7 @@ class ResultRepositoryImpl @Inject constructor(
 
         return LastRaceResultSummary(
             raceName = "${latestSession.countryName} Grand Prix",
-            sessionType = latestSession.sessionType.toModel(),
+            sessionType = latestSession.sessionType.toSessionType(),
             firstThreeDriverResultList = driverPositions.map { it.toDriver() }.take(3)
         )
     }
