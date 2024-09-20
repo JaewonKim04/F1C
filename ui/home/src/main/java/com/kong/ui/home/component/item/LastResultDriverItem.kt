@@ -21,6 +21,7 @@ import com.kong.ui.core.theme.darkGray
 import com.kong.ui.core.theme.getColorFromHexCode
 import com.kong.ui.core.theme.lightGray
 import com.kong.common.Driver
+import com.kong.ui.core.theme.Bold16
 import com.kong.ui.core.theme.Regular12
 import com.kong.ui.core.theme.gray
 import com.kong.ui.core.util.RankUtil
@@ -47,10 +48,10 @@ fun LastResultDriverItem(index: Int, driver: Driver) {
         Column(modifier = Modifier.weight(1f)) {
             Text(
                 text = driver.fullName,
-                style = Bold14,
+                style = Bold16,
                 color = darkGray
             )
-            Spacer(dp = 2.dp)
+            Spacer(dp = 3.dp)
             Text(
                 text = driver.teamName,
                 style = Regular12,
