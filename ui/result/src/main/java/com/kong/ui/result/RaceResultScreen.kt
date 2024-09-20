@@ -30,7 +30,7 @@ fun RaceResultScreen(
 ) {
 
     LaunchedEffect(Unit) {
-        viewModel.start("testKey")
+        viewModel.start(9598)
     }
 
     val state by viewModel.collectAsState()

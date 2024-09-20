@@ -6,9 +6,9 @@ import com.kong.result.model.LastRaceResultSummary
 
 interface ResultRepository {
 
-    suspend fun getSessionByKey(key: String): Session
+    suspend fun getSession(sessionKey: Long): Session
 
-    suspend fun getDriverResults(key: String): List<DriverResult>
+    suspend fun getDriverResults(sessionKey: Long): List<DriverResult>
 
     suspend fun getLastRaceSummary(): LastRaceResultSummary
 }

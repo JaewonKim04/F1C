@@ -6,18 +6,26 @@ import com.kong.common.toModel
 import com.kong.home.datasource.ResultRemoteDataSource
 import com.kong.result.model.DriverResult
 import com.kong.result.model.LastRaceResultSummary
-import com.kong.result.model.fake.FakeDriverResult
 import com.kong.result.repository.ResultRepository
+import java.time.LocalDateTime
 import javax.inject.Inject
 
 class ResultRepositoryImpl @Inject constructor(
     private val resultRemoteDataSource: ResultRemoteDataSource
 ) : ResultRepository {
 
-    override suspend fun getSessionByKey(key: String): Session = FakeSession.getFakeSession()
+    override suspend fun getSession(sessionKey: Long): Session = FakeSession.getFakeSession()
 
-    override suspend fun getDriverResults(key: String): List<DriverResult> =
-        FakeDriverResult.getFakeDriverResults()
+    override suspend fun getDriverResults(sessionKey: Long): List<DriverResult> {
+        return resultRemoteDataSource.getDriverPositions(sessionKey).map {
+            DriverResult( // TODO driver result 값 확인
+                driver = it.toDriver(),
+                gapToLeader = 0f,
+                interval = 0f,
+                raceTime = LocalDateTime.now()
+            )
+        }
+    }
 
     override suspend fun getLastRaceSummary(): LastRaceResultSummary {
         val latestSession = resultRemoteDataSource.getLatestSession()
@@ -27,7 +35,7 @@ class ResultRepositoryImpl @Inject constructor(
         return LastRaceResultSummary(
             raceName = "${latestSession.countryName} Grand Prix",
             sessionType = latestSession.sessionType.toModel(),
-            firstThreeDriverResultList = driverPositions.map { it.toModel() }.take(3)
+            firstThreeDriverResultList = driverPositions.map { it.toDriver() }.take(3)
         )
     }
 }

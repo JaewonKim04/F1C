@@ -18,7 +18,7 @@ data class DriverResultResponse(
     val countryCode: String?
 ) {
 
-    fun toModel() = Driver(
+    fun toDriver() = Driver(
         fullName = fullNameKo.orEmpty(),
         broadcastName = broadCastName.orEmpty(),
         headshotUrl = headshotUrl.orEmpty(),

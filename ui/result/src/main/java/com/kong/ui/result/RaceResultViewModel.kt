@@ -20,20 +20,20 @@ class RaceResultViewModel @Inject constructor(
     override val container: Container<RaceResultState, RaceResultSideEffect> =
         container(RaceResultState())
 
-    fun start(key: String) {
-        getSessionByKey(key)
-        getDriverResultsByKey(key)
+    fun start(sessionKey: Long) {
+        getSessionByKey(sessionKey)
+        getDriverResultsByKey(sessionKey)
     }
 
-    private fun getSessionByKey(key: String) = intent {
-        val session = getSessionByKeyUseCase(key)
+    private fun getSessionByKey(sessionKey: Long) = intent {
+        val session = getSessionByKeyUseCase(sessionKey)
         reduce {
             state.copy(session = session)
         }
     }
 
-    private fun getDriverResultsByKey(key: String) = intent {
-        val driverResults = getDriverResultsUseCase(key)
+    private fun getDriverResultsByKey(sessionKey: Long) = intent {
+        val driverResults = getDriverResultsUseCase(sessionKey)
         reduce {
             state.copy(driverResults = driverResults)
         }
