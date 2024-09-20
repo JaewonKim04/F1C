@@ -1,7 +1,7 @@
 package com.kong.ui.home
 
 import androidx.lifecycle.ViewModel
-import com.kong.home.usecase.GetLastRaceResultSummaryUseCase
+import com.kong.result.usecase.GetLastRaceResultSummaryUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import org.orbitmvi.orbit.Container
 import org.orbitmvi.orbit.ContainerHost
@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val getLastRaceResultSummaryUseCase: GetLastRaceResultSummaryUseCase
+    private val getLastRaceResultSummaryUseCase: com.kong.result.usecase.GetLastRaceResultSummaryUseCase
 ) : ViewModel(), ContainerHost<HomeState, HomeSideEffect> {
 
     override val container: Container<HomeState, HomeSideEffect> = container(HomeState())

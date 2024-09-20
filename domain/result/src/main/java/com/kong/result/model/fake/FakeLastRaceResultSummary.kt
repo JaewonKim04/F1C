@@ -1,12 +1,11 @@
-package com.kong.home.model.fake
+package com.kong.result.model.fake
 
 import com.kong.common.Driver
 import com.kong.common.SessionType
-import com.kong.home.model.LastRaceResultSummary
 
 object FakeLastRaceResultSummary {
 
-    fun getLastRaceResultSummary() = LastRaceResultSummary(
+    fun getLastRaceResultSummary() = com.kong.result.model.LastRaceResultSummary(
         raceName = "Belgium Grand Prix",
         sessionType = SessionType.RACE,
         firstThreeDriverResultList = listOf(

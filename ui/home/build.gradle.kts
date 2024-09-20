@@ -46,7 +46,7 @@ dependencies {
 
     implementation(project(":ui:core"))
 
-    implementation(project(":domain:home"))
+    implementation(project(":domain:result"))
 
     implementation(libs.bundles.android)
     implementation(libs.androidx.activity.compose)

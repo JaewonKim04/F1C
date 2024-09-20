@@ -1,4 +1,4 @@
-package com.kong.home.model
+package com.kong.result.model
 
 import com.kong.common.Driver
 import com.kong.common.SessionType

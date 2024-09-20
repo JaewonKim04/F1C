@@ -25,13 +25,13 @@ import com.kong.ui.core.theme.black
 import com.kong.ui.core.theme.darkGray
 import com.kong.ui.core.theme.lightGray
 import com.kong.ui.core.theme.white
-import com.kong.home.model.LastRaceResultSummary
+import com.kong.result.model.LastRaceResultSummary
 import com.kong.kong.core.R
 import com.kong.ui.home.component.item.LastResultDriverItem
 
 @Composable
 fun LastResultView(
-    lastRaceResultSummary: LastRaceResultSummary?,
+    lastRaceResultSummary: com.kong.result.model.LastRaceResultSummary?,
     onClick: () -> Unit
 ) {
     Column(
