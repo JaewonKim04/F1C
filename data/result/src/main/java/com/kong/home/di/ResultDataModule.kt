@@ -1,6 +1,8 @@
 package com.kong.home.di
 
 import com.kong.home.api.ResultApi
+import com.kong.home.datasource.ResultRemoteDataSource
+import com.kong.home.datasource.ResultRemoteDataSourceImpl
 import com.kong.home.repository.ResultRepositoryImpl
 import com.kong.result.repository.ResultRepository
 import dagger.Binds
@@ -17,6 +19,11 @@ abstract class ResultDataModule {
 
     @Binds
     abstract fun bindResultRepository(repositoryImpl: ResultRepositoryImpl): ResultRepository
+
+    @Binds
+    abstract fun bindResultRemoteDataSource(
+        dataSourceImpl: ResultRemoteDataSourceImpl
+    ): ResultRemoteDataSource
 
     @Singleton
     @Provides
