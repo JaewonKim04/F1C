@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val getLastRaceResultSummaryUseCase: com.kong.result.usecase.GetLastRaceResultSummaryUseCase
+    private val getLastRaceResultSummaryUseCase: GetLastRaceResultSummaryUseCase
 ) : ViewModel(), ContainerHost<HomeState, HomeSideEffect> {
 
     override val container: Container<HomeState, HomeSideEffect> = container(HomeState())
