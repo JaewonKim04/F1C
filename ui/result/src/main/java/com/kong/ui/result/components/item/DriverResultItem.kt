@@ -13,8 +13,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.vector.VectorPainter
+import androidx.compose.ui.graphics.vector.VectorPath
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.kong.kong.core.R
 import com.kong.result.model.DriverResult
 import com.kong.ui.core.component.Spacer
 import com.kong.ui.core.theme.Bold16
@@ -48,6 +54,7 @@ fun DriverResultItem(
         AsyncImage(
             modifier = Modifier.size(40.dp),
             model = driver.headshotUrl,
+            error = painterResource(id = R.drawable.baseline_person_24),
             contentDescription = null
         )
 
