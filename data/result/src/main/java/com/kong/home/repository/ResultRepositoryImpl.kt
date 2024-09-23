@@ -30,10 +30,12 @@ class ResultRepositoryImpl @Inject constructor(
 
     override suspend fun getLastRaceSummary(): LastRaceResultSummary {
         val latestSession = resultRemoteDataSource.getLatestSession()
-        val driverPositions =
-            resultRemoteDataSource.getDriverPositions(latestSession.sessionKey ?: 0)
+        val sessionKey = latestSession.sessionKey ?: 0
+
+        val driverPositions = resultRemoteDataSource.getDriverPositions(sessionKey)
 
         return LastRaceResultSummary(
+            sessionKey = sessionKey,
             raceName = "${latestSession.countryName} Grand Prix",
             sessionType = latestSession.sessionType.toSessionType(),
             firstThreeDriverResultList = driverPositions.map { it.toDriver() }.take(3)

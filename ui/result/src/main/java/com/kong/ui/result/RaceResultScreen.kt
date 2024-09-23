@@ -25,12 +25,13 @@ import org.orbitmvi.orbit.compose.collectAsState
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun RaceResultScreen(
+    sessionKey: Long,
     navController: NavController,
     viewModel: RaceResultViewModel = hiltViewModel()
 ) {
 
     LaunchedEffect(Unit) {
-        viewModel.start(9598)
+        viewModel.start(sessionKey)
     }
 
     val state by viewModel.collectAsState()

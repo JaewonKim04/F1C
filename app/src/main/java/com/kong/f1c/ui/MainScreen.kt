@@ -5,9 +5,11 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.kong.navigate.NavScreens
 import com.kong.ui.home.HomeScreen
 import com.kong.ui.result.RaceResultScreen
@@ -17,16 +19,16 @@ fun MainScreen() {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = NavScreens.HOME.name,
+        startDestination = NavScreens.HOME.route,
         enterTransition = { fadeIn(tween(200)) },
         exitTransition = { fadeOut(tween(200)) }
     ) {
-        composable(route = NavScreens.HOME.name) {
+        composable(route = NavScreens.HOME.route) {
             HomeScreen(navController)
         }
 
         composable(
-            route = NavScreens.RACE_RESULT.name,
+            route = NavScreens.RACE_RESULT.route,
             enterTransition = {
                 slideIntoContainer(
                     towards = AnimatedContentTransitionScope.SlideDirection.Start,
@@ -38,9 +40,13 @@ fun MainScreen() {
                     towards = AnimatedContentTransitionScope.SlideDirection.End,
                     animationSpec = tween(200)
                 )
-            }
-        ) {
-            RaceResultScreen(navController)
+            },
+            arguments = listOf(navArgument("sessionKey") { type = NavType.LongType })
+        ) { backStackEntry ->
+            RaceResultScreen(
+                sessionKey = backStackEntry.arguments?.getLong("sessionKey") ?: 0,
+                navController = navController
+            )
         }
     }
 }
