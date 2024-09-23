@@ -3,6 +3,7 @@ package com.kong.home.dto
 import com.kong.common.Session
 import com.kong.common.toSessionType
 import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 data class SessionResponse(
     val sessionKey: Long?,
@@ -20,9 +21,11 @@ data class SessionResponse(
 
     fun toModel() = Session(
         sessionType = sessionType.toSessionType(),
-        grandprixName = "${countryName} Grand Prix",
+        grandprixName = "$countryName Grand Prix",
         circuitName = "$circuitShortName Circuit",
         countryCode = countryCode.orEmpty(),
-        startDate = LocalDateTime.now() // TODO startDate Parse
+        startDate = LocalDateTime.parse(
+            dateStart, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")
+        ).plusHours(9)
     )
 }
