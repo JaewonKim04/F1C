@@ -38,9 +38,8 @@ fun LastResultDriverItem(index: Int, driver: Driver) {
                     shape = RoundedCornerShape(3.dp)
                 )
         )
-        Spacer(5.dp)
         AsyncImage(
-            modifier = Modifier.size(45.dp),
+            modifier = Modifier.size(43.dp),
             model = driver.headshotUrl,
             contentDescription = null
         )

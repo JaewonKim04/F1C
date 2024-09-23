@@ -11,7 +11,7 @@ import com.kong.ui.result.components.item.DriverResultItem
 
 @Composable
 fun RaceRankView(driverResults: List<DriverResult>) {
-    Column(modifier = Modifier.padding(horizontal = 16.dp)) {
+    Column(modifier = Modifier.padding(horizontal = 12.dp)) {
         driverResults.forEachIndexed { index, driverResult ->
             Spacer(dp = 6.dp)
             DriverResultItem(

@@ -52,7 +52,7 @@ fun DriverResultItem(
         )
 
         AsyncImage(
-            modifier = Modifier.size(40.dp),
+            modifier = Modifier.size(38.dp),
             model = driver.headshotUrl,
             error = painterResource(id = R.drawable.baseline_person_24),
             contentDescription = null
@@ -69,7 +69,7 @@ fun DriverResultItem(
                 style = Bold16,
                 color = black
             )
-            Spacer(dp = 2.dp)
+            Spacer(dp = 4.dp)
             Text(
                 text = driver.teamName,
                 style = Regular12,
