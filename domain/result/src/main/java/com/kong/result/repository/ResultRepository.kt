@@ -10,5 +10,7 @@ interface ResultRepository {
 
     suspend fun getDriverResults(sessionKey: Long): List<DriverResult>
 
+    suspend fun getSessionSummaries(sessionKey: Long): List<String>
+
     suspend fun getLastRaceSummary(): LastRaceResultSummary
 }

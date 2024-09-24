@@ -9,5 +9,7 @@ data class RaceResultState(
     val session: Session? = null,
     val driverResults: List<DriverResult> = emptyList(),
 
+    val summaries: List<String> = emptyList(),
+
     val selectedResultType: ResultType = ResultType.RANK
 )

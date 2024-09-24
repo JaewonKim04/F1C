@@ -39,10 +39,7 @@ fun RaceResultScreen(
         topBar = {
             TopBar(
                 onClickBack = {
-                    navController.popBackStack(
-                        route = NavScreens.HOME.name,
-                        inclusive = false
-                    )
+                    navController.popBackStack()
                 }
             )
         }
@@ -77,7 +74,7 @@ fun RaceResultScreen(
                     }
 
                     ResultType.ANALYZE -> {
-                        RaceAnalyzeView()
+                        RaceAnalyzeView(state)
                     }
                 }
             }

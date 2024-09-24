@@ -19,4 +19,6 @@ class ResultRemoteDataSourceImpl @Inject constructor(
     override suspend fun getDriverPositions(sessionKey: Long): List<DriverResultResponse> =
         resultApi.getDriverPositions(sessionKey).data
 
+    override suspend fun getSessionSummaries(sessionKey: Long): List<String> =
+        resultApi.getSessionSummaries(sessionKey).data
 }

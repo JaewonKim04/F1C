@@ -28,6 +28,10 @@ class ResultRepositoryImpl @Inject constructor(
         }
     }
 
+    override suspend fun getSessionSummaries(sessionKey: Long): List<String> {
+        return resultRemoteDataSource.getSessionSummaries(sessionKey).take(3)
+    }
+
     override suspend fun getLastRaceSummary(): LastRaceResultSummary {
         val latestSession = resultRemoteDataSource.getLatestSession()
         val sessionKey = latestSession.sessionKey ?: 0

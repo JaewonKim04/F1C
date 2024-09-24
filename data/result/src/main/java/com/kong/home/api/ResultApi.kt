@@ -21,4 +21,9 @@ interface ResultApi {
     suspend fun getDriverPositions(
         @Path("sessionKey") sessionKey: Long
     ): F1CServerResponse<List<DriverResultResponse>>
+
+    @GET("summaries/sessions/{sessionKey}")
+    suspend fun getSessionSummaries(
+        @Path("sessionKey") sessionKey: Long
+    ): F1CServerResponse<List<String>>
 }
