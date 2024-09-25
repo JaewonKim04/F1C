@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.kong.ui.core.component.Spacer
@@ -59,5 +60,31 @@ fun LastResultLoadingView() {
                 )
             }
         }
+
+        Spacer(10.dp)
+        repeat(3) {
+            Column {
+                Box(
+                    modifier = Modifier
+                        .shimmer()
+                        .background(lightGray)
+                        .size(width = 100.dp, height = 15.dp)
+                )
+                Spacer(3.dp)
+                Box(
+                    modifier = Modifier
+                        .shimmer()
+                        .background(lightGray)
+                        .size(width = 80.dp, height = 10.dp)
+                )
+                Spacer(dp = 8.dp)
+            }
+        }
     }
+}
+
+@Preview
+@Composable
+private fun LastResultLoadingViewPreview() {
+    LastResultLoadingView()
 }
