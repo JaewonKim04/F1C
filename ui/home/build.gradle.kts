@@ -61,4 +61,6 @@ dependencies {
     implementation(libs.bundles.orbit)
 
     implementation(libs.coil.compose)
+
+    implementation(libs.compose.shimmer)
 }
