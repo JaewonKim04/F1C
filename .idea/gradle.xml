@@ -18,6 +18,7 @@
             <option value="$PROJECT_DIR$/navigate" />
             <option value="$PROJECT_DIR$/network" />
             <option value="$PROJECT_DIR$/ui" />
+            <option value="$PROJECT_DIR$/ui/calendar" />
             <option value="$PROJECT_DIR$/ui/core" />
             <option value="$PROJECT_DIR$/ui/home" />
             <option value="$PROJECT_DIR$/ui/result" />
