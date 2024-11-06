@@ -12,7 +12,8 @@ import androidx.compose.ui.unit.dp
 import com.kong.ui.core.component.Spacer
 import com.kong.ui.core.theme.backgroundGray
 import com.kong.ui.home.component.LastResultView
-import com.kong.ui.home.component.loading.LastResultLoadingView
+import com.kong.ui.home.component.NextRaceView
+import com.kong.ui.home.component.loading.HomeLoadingView
 import org.orbitmvi.orbit.compose.collectAsState
 
 @Composable
@@ -29,8 +30,10 @@ fun HomeView(viewModel: HomeViewModel) {
         ) {
             Spacer(dp = 30.dp)
             if (state.isLoading) {
-                LastResultLoadingView()
+                HomeLoadingView()
             } else {
+                NextRaceView()
+
                 LastResultView(
                     lastRaceResultSummary = state.lastRaceResultSummary,
                     onClick = viewModel::onClickLastRaceResult

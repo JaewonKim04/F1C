@@ -22,7 +22,7 @@ import com.kong.ui.core.theme.white
 import com.valentinilk.shimmer.shimmer
 
 @Composable
-fun LastResultLoadingView() {
+fun HomeLoadingView() {
     Column(
         modifier = Modifier
             .background(color = white, shape = RoundedCornerShape(16.dp))
@@ -86,5 +86,5 @@ fun LastResultLoadingView() {
 @Preview
 @Composable
 private fun LastResultLoadingViewPreview() {
-    LastResultLoadingView()
+    HomeLoadingView()
 }
