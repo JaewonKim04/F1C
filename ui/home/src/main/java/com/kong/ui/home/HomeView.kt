@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.kong.common.fake.FakeSession
 import com.kong.ui.core.component.Spacer
 import com.kong.ui.core.theme.backgroundGray
 import com.kong.ui.home.component.LastResultView
@@ -32,7 +33,12 @@ fun HomeView(viewModel: HomeViewModel) {
             if (state.isLoading) {
                 HomeLoadingView()
             } else {
-                NextRaceView()
+                NextRaceView(
+                    session = FakeSession.getFakeSession(),
+                    onClickSession = {},
+                    onClickCalendar = {}
+                )
+                Spacer(dp = 30.dp)
 
                 LastResultView(
                     lastRaceResultSummary = state.lastRaceResultSummary,
