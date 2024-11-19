@@ -11,6 +11,6 @@ object FakeSession {
         grandprixName = "Bahrain Grand Prix",
         circuitName = "Sakhir Circuit",
         countryCode = "BH",
-        startDate = LocalDateTime.of(2024, 4, 23, 13, 0)
+        startDate = LocalDateTime.now().plusDays(4)
     )
 }
