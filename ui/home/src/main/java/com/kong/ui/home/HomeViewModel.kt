@@ -1,7 +1,7 @@
 package com.kong.ui.home
 
 import androidx.lifecycle.ViewModel
-import com.kong.result.usecase.GetLastRaceResultSummaryUseCase
+import com.kong.result.usecase.GetLastSessionResultSummaryUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import org.orbitmvi.orbit.Container
 import org.orbitmvi.orbit.ContainerHost
@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val getLastRaceResultSummaryUseCase: GetLastRaceResultSummaryUseCase
+    private val getLastSessionResultSummaryUseCase: GetLastSessionResultSummaryUseCase
 ) : ViewModel(), ContainerHost<HomeState, HomeSideEffect> {
 
     override val container: Container<HomeState, HomeSideEffect> = container(HomeState())
@@ -21,10 +21,10 @@ class HomeViewModel @Inject constructor(
 
     private fun getLastRaceResultSummary() = intent {
         reduce { state.copy(isLoading = true) }
-        val raceResult = getLastRaceResultSummaryUseCase()
+        val raceResult = getLastSessionResultSummaryUseCase()
         reduce {
             state.copy(
-                lastRaceResultSummary = raceResult,
+                lastSessionResultSummary = raceResult,
                 isLoading = false
             )
         }
@@ -32,7 +32,7 @@ class HomeViewModel @Inject constructor(
 
     fun onClickLastRaceResult() = intent {
         postSideEffect(
-            HomeSideEffect.StartRaceResult(state.lastRaceResultSummary?.sessionKey ?: 0)
+            HomeSideEffect.StartRaceResult(state.lastSessionResultSummary?.sessionKey ?: 0)
         )
     }
 }

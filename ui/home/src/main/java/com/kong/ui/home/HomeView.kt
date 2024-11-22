@@ -41,7 +41,7 @@ fun HomeView(viewModel: HomeViewModel) {
                 Spacer(dp = 30.dp)
 
                 LastResultView(
-                    lastRaceResultSummary = state.lastRaceResultSummary,
+                    lastSessionResultSummary = state.lastSessionResultSummary,
                     onClick = viewModel::onClickLastRaceResult
                 )
             }

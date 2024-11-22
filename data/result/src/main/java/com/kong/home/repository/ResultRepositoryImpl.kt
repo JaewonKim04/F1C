@@ -4,7 +4,7 @@ import com.kong.common.Session
 import com.kong.common.toSessionType
 import com.kong.home.datasource.ResultRemoteDataSource
 import com.kong.result.model.DriverResult
-import com.kong.result.model.LastRaceResultSummary
+import com.kong.result.model.LastSessionResultSummary
 import com.kong.result.repository.ResultRepository
 import java.time.LocalDateTime
 import javax.inject.Inject
@@ -32,13 +32,13 @@ class ResultRepositoryImpl @Inject constructor(
         return resultRemoteDataSource.getSessionSummaries(sessionKey).take(3)
     }
 
-    override suspend fun getLastRaceSummary(): LastRaceResultSummary {
+    override suspend fun getLastRaceSummary(): LastSessionResultSummary {
         val latestSession = resultRemoteDataSource.getLatestSession()
         val sessionKey = latestSession.sessionKey ?: 0
 
         val driverPositions = resultRemoteDataSource.getDriverPositions(sessionKey)
 
-        return LastRaceResultSummary(
+        return LastSessionResultSummary(
             sessionKey = sessionKey,
             raceName = "${latestSession.countryName} Grand Prix",
             sessionType = latestSession.sessionType.toSessionType(),

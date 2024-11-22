@@ -25,13 +25,13 @@ import com.kong.ui.core.theme.black
 import com.kong.ui.core.theme.darkGray
 import com.kong.ui.core.theme.lightGray
 import com.kong.ui.core.theme.white
-import com.kong.result.model.LastRaceResultSummary
+import com.kong.result.model.LastSessionResultSummary
 import com.kong.kong.core.R
 import com.kong.ui.home.component.item.LastResultDriverItem
 
 @Composable
 fun LastResultView(
-    lastRaceResultSummary: LastRaceResultSummary?,
+    lastSessionResultSummary: LastSessionResultSummary?,
     onClick: () -> Unit
 ) {
     Column(
@@ -58,13 +58,13 @@ fun LastResultView(
                 )
                 Spacer(3.dp)
                 Text(
-                    text = lastRaceResultSummary?.raceName.orEmpty(),
+                    text = lastSessionResultSummary?.raceName.orEmpty(),
                     style = Bold24,
                     color = darkGray
                 )
                 Spacer(3.dp)
                 Text(
-                    text = lastRaceResultSummary?.sessionType?.displayName.orEmpty(),
+                    text = lastSessionResultSummary?.sessionType?.displayName.orEmpty(),
                     style = Bold18,
                     color = darkGray
                 )
@@ -77,7 +77,7 @@ fun LastResultView(
             )
         }
         Spacer(10.dp)
-        lastRaceResultSummary?.firstThreeDriverResultList?.forEachIndexed { index, driver ->
+        lastSessionResultSummary?.firstThreeDriverResultList?.forEachIndexed { index, driver ->
             LastResultDriverItem(
                 index = index,
                 driver = driver

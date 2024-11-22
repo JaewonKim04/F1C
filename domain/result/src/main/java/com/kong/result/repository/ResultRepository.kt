@@ -2,7 +2,7 @@ package com.kong.result.repository
 
 import com.kong.common.Session
 import com.kong.result.model.DriverResult
-import com.kong.result.model.LastRaceResultSummary
+import com.kong.result.model.LastSessionResultSummary
 
 interface ResultRepository {
 
@@ -12,5 +12,5 @@ interface ResultRepository {
 
     suspend fun getSessionSummaries(sessionKey: Long): List<String>
 
-    suspend fun getLastRaceSummary(): LastRaceResultSummary
+    suspend fun getLastRaceSummary(): LastSessionResultSummary
 }

@@ -3,7 +3,7 @@ package com.kong.result.model
 import com.kong.common.Driver
 import com.kong.common.SessionType
 
-data class LastRaceResultSummary(
+data class LastSessionResultSummary(
     val sessionKey: Long,
     val raceName: String,
     val sessionType: SessionType,
