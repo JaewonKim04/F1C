@@ -18,9 +18,9 @@ fun HomeScreen(
 
     viewModel.collectSideEffect {
         when (it) {
-            is HomeSideEffect.StartRaceResult -> {
+            is HomeSideEffect.StartSessionResult -> {
                 navController.navigate(
-                    NavScreens.RACE_RESULT.route.replace(
+                    NavScreens.SESSION_RESULT.route.replace(
                         oldValue = "{sessionKey}",
                         newValue = it.sessionKey.toString()
                     )

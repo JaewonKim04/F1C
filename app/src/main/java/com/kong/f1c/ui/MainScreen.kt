@@ -12,7 +12,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.kong.navigate.NavScreens
 import com.kong.ui.home.HomeScreen
-import com.kong.ui.result.RaceResultScreen
+import com.kong.ui.result.SessionResultScreen
 
 @Composable
 fun MainScreen() {
@@ -28,7 +28,7 @@ fun MainScreen() {
         }
 
         composable(
-            route = NavScreens.RACE_RESULT.route,
+            route = NavScreens.SESSION_RESULT.route,
             enterTransition = {
                 slideIntoContainer(
                     towards = AnimatedContentTransitionScope.SlideDirection.Start,
@@ -43,7 +43,7 @@ fun MainScreen() {
             },
             arguments = listOf(navArgument("sessionKey") { type = NavType.LongType })
         ) { backStackEntry ->
-            RaceResultScreen(
+            SessionResultScreen(
                 sessionKey = backStackEntry.arguments?.getLong("sessionKey") ?: 0,
                 navController = navController
             )

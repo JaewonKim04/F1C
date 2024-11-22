@@ -4,7 +4,7 @@ import com.kong.common.Session
 import com.kong.result.model.DriverResult
 import com.kong.ui.result.components.ResultType
 
-data class RaceResultState(
+data class SessionResultState(
 
     val session: Session? = null,
     val driverResults: List<DriverResult> = emptyList(),

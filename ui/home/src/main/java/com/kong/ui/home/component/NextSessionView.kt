@@ -34,7 +34,7 @@ import com.kong.ui.core.util.DateUtil.getLeftDay
 import com.kong.ui.core.util.DateUtil.toDisplayDate
 
 @Composable
-fun NextRaceView(
+fun NextSessionView(
     session: Session?,
     onClickSession: () -> Unit,
     onClickCalendar: () -> Unit

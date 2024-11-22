@@ -12,15 +12,15 @@ import org.orbitmvi.orbit.viewmodel.container
 import javax.inject.Inject
 
 @HiltViewModel
-class RaceResultViewModel @Inject constructor(
+class SessionResultViewModel @Inject constructor(
     private val getSessionByKeyUseCase: GetSessionByKeyUseCase,
     private val getDriverResultsUseCase: GetDriverResultsUseCase,
     private val getSessionSummariesUseCase: GetSessionSummariesUseCase
 ) : ViewModel(),
-    ContainerHost<RaceResultState, RaceResultSideEffect> {
+    ContainerHost<SessionResultState, SessionResultSideEffect> {
 
-    override val container: Container<RaceResultState, RaceResultSideEffect> =
-        container(RaceResultState())
+    override val container: Container<SessionResultState, SessionResultSideEffect> =
+        container(SessionResultState())
 
     fun start(sessionKey: Long) {
         getSessionByKey(sessionKey)

@@ -17,7 +17,7 @@ import com.kong.ui.core.theme.gray
 import com.kong.ui.core.theme.qualifyingBackground
 
 @Composable
-fun RaceSummaryBanner(
+fun SessionSummaryBanner(
     summaries: List<String>
 ) {
     Column(

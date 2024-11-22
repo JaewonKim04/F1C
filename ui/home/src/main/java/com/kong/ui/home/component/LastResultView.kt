@@ -58,7 +58,7 @@ fun LastResultView(
                 )
                 Spacer(3.dp)
                 Text(
-                    text = lastSessionResultSummary?.raceName.orEmpty(),
+                    text = lastSessionResultSummary?.sessionName.orEmpty(),
                     style = Bold24,
                     color = darkGray
                 )

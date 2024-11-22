@@ -9,11 +9,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.kong.common.fake.FakeSession
 import com.kong.ui.core.component.Spacer
 import com.kong.ui.core.theme.backgroundGray
 import com.kong.ui.home.component.LastResultView
-import com.kong.ui.home.component.NextRaceView
+import com.kong.ui.home.component.NextSessionView
 import com.kong.ui.home.component.loading.HomeLoadingView
 import org.orbitmvi.orbit.compose.collectAsState
 
@@ -33,7 +32,7 @@ fun HomeView(viewModel: HomeViewModel) {
             if (state.isLastSessionLoading) {
                 HomeLoadingView()
             } else {
-                NextRaceView(
+                NextSessionView(
                     session = state.nextSession,
                     onClickSession = {},
                     onClickCalendar = {}
@@ -42,7 +41,7 @@ fun HomeView(viewModel: HomeViewModel) {
 
                 LastResultView(
                     lastSessionResultSummary = state.lastSessionResultSummary,
-                    onClick = viewModel::onClickLastRaceResult
+                    onClick = viewModel::onClickLastSessionResult
                 )
             }
         }

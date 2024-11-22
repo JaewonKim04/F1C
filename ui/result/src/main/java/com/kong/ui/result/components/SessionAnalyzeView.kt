@@ -5,14 +5,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.kong.ui.result.RaceResultState
-import com.kong.ui.result.components.banner.RaceSummaryBanner
+import com.kong.ui.result.SessionResultState
+import com.kong.ui.result.components.banner.SessionSummaryBanner
 
 @Composable
-fun RaceAnalyzeView(state: RaceResultState) {
+fun SessionAnalyzeView(state: SessionResultState) {
     Column(modifier = Modifier.padding(12.dp)) {
         if (state.summaries.isNotEmpty()) {
-            RaceSummaryBanner(summaries = state.summaries)
+            SessionSummaryBanner(summaries = state.summaries)
         }
     }
 }

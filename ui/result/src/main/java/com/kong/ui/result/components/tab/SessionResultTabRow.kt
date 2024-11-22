@@ -22,7 +22,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
 
 @Composable
-fun RaceResultTabRow(
+fun SessionResultTabRow(
     selectedResultType: ResultType,
     onClickTab: (ResultType) -> Unit
 ) {

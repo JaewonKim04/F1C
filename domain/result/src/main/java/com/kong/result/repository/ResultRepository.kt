@@ -12,5 +12,5 @@ interface ResultRepository {
 
     suspend fun getSessionSummaries(sessionKey: Long): List<String>
 
-    suspend fun getLastRaceSummary(): LastSessionResultSummary
+    suspend fun getLastSessionSummary(): LastSessionResultSummary
 }

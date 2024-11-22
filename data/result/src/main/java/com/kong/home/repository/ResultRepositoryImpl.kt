@@ -23,7 +23,7 @@ class ResultRepositoryImpl @Inject constructor(
                 driver = it.toDriver(),
                 gapToLeader = 0f,
                 interval = 0f,
-                raceTime = LocalDateTime.now()
+                sessionTime = LocalDateTime.now()
             )
         }
     }
@@ -32,7 +32,7 @@ class ResultRepositoryImpl @Inject constructor(
         return resultRemoteDataSource.getSessionSummaries(sessionKey).take(3)
     }
 
-    override suspend fun getLastRaceSummary(): LastSessionResultSummary {
+    override suspend fun getLastSessionSummary(): LastSessionResultSummary {
         val latestSession = resultRemoteDataSource.getLatestSession()
         val sessionKey = latestSession.sessionKey ?: 0
 
@@ -40,7 +40,7 @@ class ResultRepositoryImpl @Inject constructor(
 
         return LastSessionResultSummary(
             sessionKey = sessionKey,
-            raceName = "${latestSession.countryName} Grand Prix",
+            sessionName = "${latestSession.countryName} Grand Prix",
             sessionType = latestSession.sessionType.toSessionType(),
             firstThreeDriverResultList = driverPositions.map { it.toDriver() }.take(3)
         )

@@ -5,7 +5,7 @@ import com.kong.common.SessionType
 
 data class LastSessionResultSummary(
     val sessionKey: Long,
-    val raceName: String,
+    val sessionName: String,
     val sessionType: SessionType,
     val firstThreeDriverResultList: List<Driver>
 )

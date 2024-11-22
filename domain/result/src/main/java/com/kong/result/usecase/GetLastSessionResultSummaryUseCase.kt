@@ -9,5 +9,5 @@ class GetLastSessionResultSummaryUseCase @Inject constructor(
 ) {
 
     suspend operator fun invoke(): LastSessionResultSummary =
-        resultRepository.getLastRaceSummary()
+        resultRepository.getLastSessionSummary()
 }

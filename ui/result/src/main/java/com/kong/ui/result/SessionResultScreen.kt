@@ -12,22 +12,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.kong.navigate.NavScreens
 import com.kong.ui.core.component.Spacer
 import com.kong.ui.core.component.TopBar
-import com.kong.ui.result.components.RaceAnalyzeView
-import com.kong.ui.result.components.RaceRankView
+import com.kong.ui.result.components.SessionAnalyzeView
+import com.kong.ui.result.components.SessionRankView
 import com.kong.ui.result.components.ResultType
 import com.kong.ui.result.components.SessionView
-import com.kong.ui.result.components.tab.RaceResultTabRow
+import com.kong.ui.result.components.tab.SessionResultTabRow
 import org.orbitmvi.orbit.compose.collectAsState
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun RaceResultScreen(
+fun SessionResultScreen(
     sessionKey: Long,
     navController: NavController,
-    viewModel: RaceResultViewModel = hiltViewModel()
+    viewModel: SessionResultViewModel = hiltViewModel()
 ) {
 
     LaunchedEffect(Unit) {
@@ -61,7 +60,7 @@ fun RaceResultScreen(
 
 
             stickyHeader {
-                RaceResultTabRow(
+                SessionResultTabRow(
                     selectedResultType = state.selectedResultType,
                     onClickTab = viewModel::onClickResultTypeTab
                 )
@@ -70,11 +69,11 @@ fun RaceResultScreen(
             item {
                 when (state.selectedResultType) {
                     ResultType.RANK -> {
-                        RaceRankView(state.driverResults)
+                        SessionRankView(state.driverResults)
                     }
 
                     ResultType.ANALYZE -> {
-                        RaceAnalyzeView(state)
+                        SessionAnalyzeView(state)
                     }
                 }
             }
