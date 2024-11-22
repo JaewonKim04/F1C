@@ -39,7 +39,7 @@ class HomeViewModel @Inject constructor(
         reduce {
             state.copy(
                 nextSession = nextSession,
-                isLastSessionLoading = false
+                isNextSessionLoading = false
             )
         }
     }
