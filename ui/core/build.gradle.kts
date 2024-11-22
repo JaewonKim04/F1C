@@ -44,4 +44,6 @@ dependencies {
     implementation(libs.bundles.android)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
+
+    implementation(libs.compose.shimmer)
 }

@@ -13,7 +13,8 @@ import com.kong.ui.core.component.Spacer
 import com.kong.ui.core.theme.backgroundGray
 import com.kong.ui.home.component.LastResultView
 import com.kong.ui.home.component.NextSessionView
-import com.kong.ui.home.component.loading.HomeLoadingView
+import com.kong.ui.home.component.loading.LastSessionLoadingView
+import com.kong.ui.home.component.loading.NextSessionLoadingView
 import org.orbitmvi.orbit.compose.collectAsState
 
 @Composable
@@ -30,18 +31,22 @@ fun HomeView(viewModel: HomeViewModel) {
         ) {
             Spacer(dp = 30.dp)
             if (state.isLastSessionLoading) {
-                HomeLoadingView()
+                LastSessionLoadingView()
+            } else {
+                LastResultView(
+                    lastSessionResultSummary = state.lastSessionResultSummary,
+                    onClick = viewModel::onClickLastSessionResult
+                )
+            }
+            Spacer(dp = 30.dp)
+
+            if (state.isNextSessionLoading) {
+                NextSessionLoadingView(onClickCalendar = viewModel::onClickCalendar)
             } else {
                 NextSessionView(
                     session = state.nextSession,
                     onClickSession = {},
                     onClickCalendar = {}
-                )
-                Spacer(dp = 30.dp)
-
-                LastResultView(
-                    lastSessionResultSummary = state.lastSessionResultSummary,
-                    onClick = viewModel::onClickLastSessionResult
                 )
             }
         }

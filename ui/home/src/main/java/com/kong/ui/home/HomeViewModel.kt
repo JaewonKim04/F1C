@@ -49,4 +49,8 @@ class HomeViewModel @Inject constructor(
             HomeSideEffect.StartSessionResult(state.lastSessionResultSummary?.sessionKey ?: 0)
         )
     }
+
+    fun onClickCalendar() {
+
+    }
 }

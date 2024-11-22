@@ -1,11 +1,9 @@
 package com.kong.ui.home.component.loading
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -15,14 +13,16 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.kong.ui.core.component.ContentLoadingView
+import com.kong.ui.core.component.DescriptionLoadingView
 import com.kong.ui.core.component.Spacer
+import com.kong.ui.core.component.TitleLoadingView
 import com.kong.ui.core.theme.Regular14
 import com.kong.ui.core.theme.lightGray
 import com.kong.ui.core.theme.white
-import com.valentinilk.shimmer.shimmer
 
 @Composable
-fun HomeLoadingView() {
+fun LastSessionLoadingView() {
     Column(
         modifier = Modifier
             .background(color = white, shape = RoundedCornerShape(16.dp))
@@ -45,38 +45,18 @@ fun HomeLoadingView() {
                     color = lightGray
                 )
                 Spacer(3.dp)
-                Box(
-                    modifier = Modifier
-                        .shimmer()
-                        .background(lightGray)
-                        .size(width = 150.dp, height = 40.dp)
-                )
+                TitleLoadingView()
                 Spacer(3.dp)
-                Box(
-                    modifier = Modifier
-                        .shimmer()
-                        .background(lightGray)
-                        .size(width = 100.dp, height = 20.dp)
-                )
+                ContentLoadingView()
             }
         }
 
         Spacer(10.dp)
         repeat(3) {
             Column {
-                Box(
-                    modifier = Modifier
-                        .shimmer()
-                        .background(lightGray)
-                        .size(width = 100.dp, height = 15.dp)
-                )
+                ContentLoadingView(height = 15.dp)
                 Spacer(3.dp)
-                Box(
-                    modifier = Modifier
-                        .shimmer()
-                        .background(lightGray)
-                        .size(width = 80.dp, height = 10.dp)
-                )
+                DescriptionLoadingView()
                 Spacer(dp = 8.dp)
             }
         }
@@ -86,5 +66,5 @@ fun HomeLoadingView() {
 @Preview
 @Composable
 private fun LastResultLoadingViewPreview() {
-    HomeLoadingView()
+    LastSessionLoadingView()
 }
