@@ -1,6 +1,5 @@
 package com.kong.ui.home.component
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -36,7 +35,7 @@ import com.kong.ui.core.util.DateUtil.toDisplayDate
 
 @Composable
 fun NextRaceView(
-    session: Session,
+    session: Session?,
     onClickSession: () -> Unit,
     onClickCalendar: () -> Unit
 ) {
@@ -57,29 +56,29 @@ fun NextRaceView(
                 )
                 Spacer(3.dp)
                 Text(
-                    text = session.grandprixName,
+                    text = session?.grandprixName.orEmpty(),
                     style = Bold24,
                     color = darkGray
                 )
             }
             Text(
-                text = CountryFlagUtil.getFlagEmoji(session.countryCode).orEmpty(),
+                text = CountryFlagUtil.getFlagEmoji(session?.countryCode).orEmpty(),
                 fontSize = 40.sp
             )
         }
 
         Spacer(3.dp)
         Text(
-            text = session.sessionType.displayName,
+            text = session?.sessionType?.displayName.orEmpty(),
             style = Bold18,
             color = darkGray
         )
         Spacer(10.dp)
 
         Row(verticalAlignment = Alignment.Bottom) {
-            val leftDay = session.startDate.getLeftDay() ?: -1
+            val leftDay = session?.startDate?.getLeftDay() ?: -1
             val text = when {
-                leftDay > 0 -> "${session.startDate.getLeftDay()}일 남음"
+                leftDay > 0 -> "${leftDay}일 남음"
                 leftDay == 0 -> "오늘"
                 else -> ""
             }
@@ -92,7 +91,7 @@ fun NextRaceView(
                 )
             }
             Text(
-                text = session.startDate.toDisplayDate().orEmpty(),
+                text = session?.startDate.toDisplayDate().orEmpty(),
                 style = Regular14,
                 color = lightGray
             )

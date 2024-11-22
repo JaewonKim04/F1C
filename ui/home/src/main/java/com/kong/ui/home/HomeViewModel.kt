@@ -1,6 +1,7 @@
 package com.kong.ui.home
 
 import androidx.lifecycle.ViewModel
+import com.kong.domain.calendar.usecase.GetNextSessionUseCase
 import com.kong.result.usecase.GetLastSessionResultSummaryUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import org.orbitmvi.orbit.Container
@@ -10,22 +11,35 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val getLastSessionResultSummaryUseCase: GetLastSessionResultSummaryUseCase
+    private val getLastSessionResultSummaryUseCase: GetLastSessionResultSummaryUseCase,
+    private val getNextSessionUseCase: GetNextSessionUseCase
 ) : ViewModel(), ContainerHost<HomeState, HomeSideEffect> {
 
     override val container: Container<HomeState, HomeSideEffect> = container(HomeState())
 
     fun start() {
-        getLastRaceResultSummary()
+        getLastSessionResultSummary()
+        getNextSession()
     }
 
-    private fun getLastRaceResultSummary() = intent {
-        reduce { state.copy(isLoading = true) }
-        val raceResult = getLastSessionResultSummaryUseCase()
+    private fun getLastSessionResultSummary() = intent {
+        reduce { state.copy(isLastSessionLoading = true) }
+        val sessionResult = getLastSessionResultSummaryUseCase()
         reduce {
             state.copy(
-                lastSessionResultSummary = raceResult,
-                isLoading = false
+                lastSessionResultSummary = sessionResult,
+                isLastSessionLoading = false
+            )
+        }
+    }
+
+    private fun getNextSession() = intent {
+        reduce { state.copy(isNextSessionLoading = true) }
+        val nextSession = getNextSessionUseCase()
+        reduce {
+            state.copy(
+                nextSession = nextSession,
+                isLastSessionLoading = false
             )
         }
     }

@@ -47,6 +47,7 @@ dependencies {
     implementation(project(":ui:core"))
 
     implementation(project(":domain:result"))
+    implementation(project(":domain:calendar"))
 
     implementation(libs.bundles.android)
     implementation(libs.androidx.activity.compose)

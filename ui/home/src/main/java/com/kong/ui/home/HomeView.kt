@@ -30,11 +30,11 @@ fun HomeView(viewModel: HomeViewModel) {
                 .padding(horizontal = 16.dp)
         ) {
             Spacer(dp = 30.dp)
-            if (state.isLoading) {
+            if (state.isLastSessionLoading) {
                 HomeLoadingView()
             } else {
                 NextRaceView(
-                    session = FakeSession.getFakeSession(),
+                    session = state.nextSession,
                     onClickSession = {},
                     onClickCalendar = {}
                 )
