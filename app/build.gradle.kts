@@ -62,6 +62,7 @@ dependencies {
     implementation(project(":ui:core"))
     implementation(project(":ui:home"))
     implementation(project(":ui:result"))
+    implementation(project(":ui:calendar"))
 
     implementation(libs.bundles.android)
     implementation(libs.androidx.activity.compose)

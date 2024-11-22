@@ -46,7 +46,7 @@ fun HomeView(viewModel: HomeViewModel) {
                 NextSessionView(
                     session = state.nextSession,
                     onClickSession = {},
-                    onClickCalendar = {}
+                    onClickCalendar = viewModel::onClickCalendar
                 )
             }
         }

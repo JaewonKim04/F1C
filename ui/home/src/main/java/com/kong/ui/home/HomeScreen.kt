@@ -26,6 +26,10 @@ fun HomeScreen(
                     )
                 )
             }
+
+            is HomeSideEffect.StartCalendar -> {
+                navController.navigate(NavScreens.CALENDAR.route)
+            }
         }
     }
 

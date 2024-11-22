@@ -11,6 +11,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.kong.navigate.NavScreens
+import com.kong.ui.calendar.CalendarScreen
 import com.kong.ui.home.HomeScreen
 import com.kong.ui.result.SessionResultScreen
 
@@ -47,6 +48,24 @@ fun MainScreen() {
                 sessionKey = backStackEntry.arguments?.getLong("sessionKey") ?: 0,
                 navController = navController
             )
+        }
+
+        composable(
+            route = NavScreens.CALENDAR.route,
+            enterTransition = {
+                slideIntoContainer(
+                    towards = AnimatedContentTransitionScope.SlideDirection.Start,
+                    animationSpec = tween(200)
+                )
+            },
+            exitTransition = {
+                slideOutOfContainer(
+                    towards = AnimatedContentTransitionScope.SlideDirection.End,
+                    animationSpec = tween(200)
+                )
+            },
+        ) { backStackEntry ->
+            CalendarScreen()
         }
     }
 }

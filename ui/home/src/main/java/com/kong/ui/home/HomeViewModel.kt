@@ -50,7 +50,7 @@ class HomeViewModel @Inject constructor(
         )
     }
 
-    fun onClickCalendar() {
-
+    fun onClickCalendar() = intent {
+        postSideEffect(HomeSideEffect.StartCalendar)
     }
 }
