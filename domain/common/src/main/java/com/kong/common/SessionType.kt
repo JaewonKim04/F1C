@@ -6,7 +6,9 @@ enum class SessionType(val displayName: String) {
     SPRINT("Sprint"),
     SPRINT_QUALIFYING("Sprint Qualifying"),
     QUALIFYING("Qualifying"),
-    PRACTICE("Practice")
+    PRACTICE1("Practice1"),
+    PRACTICE2("Practice2"),
+    PRACTICE3("Practice3");
 }
 
 fun String?.toSessionType() =
