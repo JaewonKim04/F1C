@@ -6,8 +6,8 @@ import java.time.LocalDateTime
 
 object FakeSession {
 
-    fun getFakeSession() = Session(
-        sessionType = SessionType.RACE,
+    fun getFakeSession(sessionType: SessionType = SessionType.RACE) = Session(
+        sessionType = sessionType,
         grandprixName = "Bahrain Grand Prix",
         circuitName = "Sakhir Circuit",
         countryCode = "BH",

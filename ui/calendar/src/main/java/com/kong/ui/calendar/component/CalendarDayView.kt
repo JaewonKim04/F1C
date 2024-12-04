@@ -9,33 +9,56 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.kong.common.Session
+import com.kong.common.SessionType
+import com.kong.common.fake.FakeSession
 import com.kong.ui.core.component.Spacer
 import com.kong.ui.core.theme.Regular12
 import com.kong.ui.core.theme.Regular14
 import com.kong.ui.core.theme.gray
 import com.kong.ui.core.theme.primary
 import com.kong.ui.core.theme.white
-import java.time.LocalDateTime
+import java.time.LocalDate
 
 enum class CalendarDayIndicatorStyle {
     LEFT_ROUND,
     MIDDLE,
     RIGHT_ROUND,
-    EMPTY
+    EMPTY;
+
+    companion object {
+        fun getIndicatorTypeFromSessionList(sessionList: List<Session>): CalendarDayIndicatorStyle {
+            val sessionTypes = sessionList.map { it.sessionType }
+            return when {
+                sessionTypes.isEmpty() -> EMPTY
+                sessionTypes.contains(SessionType.PRACTICE1) -> LEFT_ROUND
+                sessionTypes.contains(SessionType.RACE) -> RIGHT_ROUND
+                else -> MIDDLE
+            }
+        }
+    }
 }
 
 @Composable
 fun CalendarDay(
     modifier: Modifier = Modifier,
-    date: LocalDateTime,
-    sessionName: String,
-    indicatorStyle: CalendarDayIndicatorStyle
+    date: LocalDate,
+    sessionList: List<Session>,
 ) {
+    val sessionName = remember(sessionList) {
+        sessionList.firstOrNull()?.countryCode
+    }
+
+    val indicatorStyle = remember(sessionList) {
+        CalendarDayIndicatorStyle.getIndicatorTypeFromSessionList(sessionList)
+    }
+
     Column(
         modifier = modifier
             .padding(vertical = 3.dp)
@@ -68,7 +91,7 @@ fun CalendarDay(
             ) {
                 if (indicatorStyle == CalendarDayIndicatorStyle.MIDDLE) {
                     Text(
-                        text = sessionName,
+                        text = sessionName.orEmpty(),
                         style = Regular14,
                         color = white
                     )
@@ -82,9 +105,8 @@ fun CalendarDay(
 @Composable
 private fun CalendarDay_Preview1() {
     CalendarDay(
-        date = LocalDateTime.now(),
-        sessionName = "BEL",
-        indicatorStyle = CalendarDayIndicatorStyle.LEFT_ROUND
+        date = LocalDate.now(),
+        sessionList = listOf(FakeSession.getFakeSession(sessionType = SessionType.PRACTICE1)),
     )
 }
 
@@ -92,9 +114,8 @@ private fun CalendarDay_Preview1() {
 @Composable
 private fun CalendarDay_Preview2() {
     CalendarDay(
-        date = LocalDateTime.now(),
-        sessionName = "BEL",
-        indicatorStyle = CalendarDayIndicatorStyle.MIDDLE
+        date = LocalDate.now(),
+        sessionList = listOf(FakeSession.getFakeSession(sessionType = SessionType.PRACTICE2))
     )
 }
 
@@ -102,8 +123,7 @@ private fun CalendarDay_Preview2() {
 @Composable
 private fun CalendarDay_Preview3() {
     CalendarDay(
-        date = LocalDateTime.now(),
-        sessionName = "BEL",
-        indicatorStyle = CalendarDayIndicatorStyle.RIGHT_ROUND
+        date = LocalDate.now(),
+        sessionList = listOf(FakeSession.getFakeSession(sessionType = SessionType.RACE))
     )
 }
