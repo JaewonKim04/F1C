@@ -1,5 +1,6 @@
 package com.kong.ui.core.util
 
+import android.util.Log
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -29,6 +30,8 @@ object DateUtil {
         val localDate =
             LocalDateTime.ofInstant(calendar.toInstant(), ZoneId.systemDefault()).toLocalDate()
 
+        Log.d("calendar", "yearMonth: $this, weekOfYear: $weekOfYear, date: $localDate")
+
         return if (localDate.year == this.year && localDate.monthValue == this.monthValue) localDate else null
     }
 
@@ -36,6 +39,7 @@ object DateUtil {
         val calendar = Calendar.getInstance()
         calendar[Calendar.YEAR] = this.year
         calendar[Calendar.MONTH] = this.monthValue - 1
+        calendar[Calendar.DAY_OF_MONTH] = 1
         return calendar
     }
 
