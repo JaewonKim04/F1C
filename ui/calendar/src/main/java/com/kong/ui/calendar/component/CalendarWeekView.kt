@@ -9,9 +9,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.kong.ui.calendar.CalendarState
 import com.kong.ui.calendar.model.CalendarWeek
+import com.kong.ui.core.util.DateUtil
+import com.kong.ui.core.util.DateUtil.getLocalDate
 import java.time.LocalDate
 import java.time.YearMonth
 import java.time.temporal.TemporalAdjusters
+import java.time.temporal.TemporalField
 
 @Composable
 fun CalendarWeekView(
@@ -23,8 +26,7 @@ fun CalendarWeekView(
 
     Row {
         weekValues.forEach { calendarWeek ->
-            val date = LocalDate.from(showingYearMonth.atDay(1))
-                .with(TemporalAdjusters.dayOfWeekInMonth(weekNumberOfMonth, calendarWeek.dayOfWeek))
+            val date = showingYearMonth.getLocalDate(weekNumberOfMonth, calendarWeek.dayOfWeek)
 
             if (date == null) {
                 Spacer(
