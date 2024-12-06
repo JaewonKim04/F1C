@@ -9,12 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.kong.ui.calendar.CalendarState
 import com.kong.ui.calendar.model.CalendarWeek
-import com.kong.ui.core.util.DateUtil
 import com.kong.ui.core.util.DateUtil.getLocalDate
-import java.time.LocalDate
 import java.time.YearMonth
-import java.time.temporal.TemporalAdjusters
-import java.time.temporal.TemporalField
 
 @Composable
 fun CalendarWeekView(

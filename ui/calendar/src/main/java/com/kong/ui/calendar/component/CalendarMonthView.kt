@@ -4,20 +4,15 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import com.kong.ui.calendar.CalendarState
+import com.kong.ui.core.util.DateUtil.getWeekCountOfMonth
 import java.time.YearMonth
-import java.util.Calendar
 
 @Composable
 fun CalendarMonthView(
     state: CalendarState,
     showingYearMonth: YearMonth
 ) {
-    val weekCount = remember(showingYearMonth) {
-        val calendar = Calendar.getInstance()
-        calendar[Calendar.YEAR] = showingYearMonth.year
-        calendar[Calendar.MONTH] = showingYearMonth.monthValue
-        calendar.getActualMaximum(Calendar.WEEK_OF_MONTH)
-    }
+    val weekCount = remember(showingYearMonth) { showingYearMonth.getWeekCountOfMonth() }
 
     Column {
         repeat(weekCount) { weekNumber ->

@@ -1,6 +1,5 @@
 package com.kong.ui.core.util
 
-import android.util.Log
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -30,9 +29,12 @@ object DateUtil {
         val localDate =
             LocalDateTime.ofInstant(calendar.toInstant(), ZoneId.systemDefault()).toLocalDate()
 
-        Log.d("calendar", "yearMonth: $this, weekOfYear: $weekOfYear, date: $localDate")
-
         return if (localDate.year == this.year && localDate.monthValue == this.monthValue) localDate else null
+    }
+
+    fun YearMonth.getWeekCountOfMonth(): Int {
+        val calendar = this.getCalendarInstance()
+        return calendar.getActualMaximum(Calendar.WEEK_OF_MONTH)
     }
 
     private fun YearMonth.getCalendarInstance(): Calendar {
