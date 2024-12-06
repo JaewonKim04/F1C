@@ -36,15 +36,14 @@ import com.kong.ui.core.util.DateUtil.toDisplayDate
 @Composable
 fun NextSessionView(
     session: Session?,
-    onClickSession: () -> Unit,
-    onClickCalendar: () -> Unit
+    onClick: () -> Unit
 ) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .background(color = white, shape = RoundedCornerShape(16.dp))
-            .clickable { onClickSession() }
             .clip(RoundedCornerShape(16.dp))
+            .clickable { onClick() }
             .padding(16.dp)
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -99,7 +98,7 @@ fun NextSessionView(
         Spacer(dp = 16.dp)
 
         Row(
-            modifier = Modifier.clickable{ onClickCalendar() }.padding(vertical = 5.dp),
+            modifier = Modifier.padding(vertical = 5.dp),
             verticalAlignment = Alignment.CenterVertically) {
             Icon(
                 modifier = Modifier.size(18.dp),

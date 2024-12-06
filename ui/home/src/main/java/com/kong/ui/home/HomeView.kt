@@ -41,12 +41,11 @@ fun HomeView(viewModel: HomeViewModel) {
             Spacer(dp = 30.dp)
 
             if (state.isNextSessionLoading) {
-                NextSessionLoadingView(onClickCalendar = viewModel::onClickCalendar)
+                NextSessionLoadingView(onClickCalendar = viewModel::onClickNextSession)
             } else {
                 NextSessionView(
                     session = state.nextSession,
-                    onClickSession = {},
-                    onClickCalendar = viewModel::onClickCalendar
+                    onClick = viewModel::onClickNextSession
                 )
             }
         }
