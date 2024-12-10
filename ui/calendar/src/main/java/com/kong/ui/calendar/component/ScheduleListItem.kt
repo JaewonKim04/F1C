@@ -40,7 +40,7 @@ fun ScheduleListItem(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(20.dp)
+            .padding(start = 20.dp, top = 10.dp, end = 20.dp)
     ) {
         Text(
             text = "${date.dayOfMonth}일 ${date.dayOfWeek.getCalendarWeek()?.displayName}요일",
