@@ -13,4 +13,8 @@ enum class CalendarWeek(
     FRIDAY("금", DayOfWeek.FRIDAY),
     SATURDAY("토", DayOfWeek.SATURDAY),
     SUNDAY("일", DayOfWeek.SUNDAY);
+
+    companion object {
+        fun DayOfWeek.getCalendarWeek() = entries.find { it.dayOfWeek == this }
+    }
 }

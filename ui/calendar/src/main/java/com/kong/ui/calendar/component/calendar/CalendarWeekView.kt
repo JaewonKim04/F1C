@@ -1,4 +1,4 @@
-package com.kong.ui.calendar.component
+package com.kong.ui.calendar.component.calendar
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer

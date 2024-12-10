@@ -11,9 +11,8 @@ import java.util.Calendar
 
 object DateUtil {
 
-    fun LocalDateTime?.toDisplayText(): String? =
-        this?.format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm"))
-
+    fun LocalDateTime?.toDisplayText(pattern: String = "yyyy.MM.dd HH:mm"): String? =
+        this?.format(DateTimeFormatter.ofPattern(pattern))
 
     fun LocalDateTime.getLeftDay(): Int {
         val current = LocalDateTime.now()
@@ -47,5 +46,4 @@ object DateUtil {
         calendar[Calendar.DAY_OF_MONTH] = 1
         return calendar
     }
-
 }

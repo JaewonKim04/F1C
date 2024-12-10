@@ -1,4 +1,4 @@
-package com.kong.ui.calendar.component
+package com.kong.ui.calendar.component.calendar
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable

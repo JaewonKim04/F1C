@@ -8,7 +8,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.kong.ui.calendar.component.CalendarMonthView
+import com.kong.ui.calendar.component.calendar.CalendarMonthView
 import com.kong.ui.calendar.component.CalendarTopBar
 import org.orbitmvi.orbit.compose.collectAsState
 
@@ -34,6 +34,7 @@ fun CalendarScreen(
                 state = state,
                 showingYearMonth = state.showingYearMonth
             )
+
         }
     }
 }
