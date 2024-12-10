@@ -13,6 +13,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kong.common.Session
@@ -68,7 +69,8 @@ fun CalendarDay(
         Text(
             text = "${date.dayOfMonth}",
             style = Regular12,
-            color = gray
+            color = gray,
+            textAlign = TextAlign.Center
         )
         Spacer(dp = 10.dp)
 
