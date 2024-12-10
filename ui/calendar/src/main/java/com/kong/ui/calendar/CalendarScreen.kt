@@ -2,14 +2,16 @@ package com.kong.ui.calendar
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.kong.ui.calendar.component.calendar.CalendarMonthView
 import com.kong.ui.calendar.component.CalendarTopBar
+import com.kong.ui.calendar.component.ScheduleListItem
+import com.kong.ui.calendar.component.calendar.CalendarMonthView
 import org.orbitmvi.orbit.compose.collectAsState
 
 @Composable
@@ -35,6 +37,13 @@ fun CalendarScreen(
                 showingYearMonth = state.showingYearMonth
             )
 
+            LazyColumn {
+                state.localDateAndSessions.entries.forEach {
+                    item {
+                        ScheduleListItem(date = it.key, sessionList = it.value)
+                    }
+                }
+            }
         }
     }
 }

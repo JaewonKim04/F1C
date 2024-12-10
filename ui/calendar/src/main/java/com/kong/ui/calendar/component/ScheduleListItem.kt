@@ -103,7 +103,7 @@ private fun ScheduleItem(
 
 @Preview(showBackground = true)
 @Composable
-fun ScheduleListItem_Preview() {
+private fun ScheduleListItem_Preview() {
     ScheduleListItem(
         date = LocalDate.now(),
         sessionList = listOf(
