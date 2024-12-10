@@ -1,6 +1,7 @@
 package com.kong.home.repository
 
 import com.kong.common.Session
+import com.kong.common.fake.FakeSession
 import com.kong.common.toSessionType
 import com.kong.home.datasource.ResultRemoteDataSource
 import com.kong.result.model.DriverResult
@@ -33,16 +34,23 @@ class ResultRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getLastSessionSummary(): LastSessionResultSummary {
-        val latestSession = resultRemoteDataSource.getLatestSession()
-        val sessionKey = latestSession.sessionKey ?: 0
-
-        val driverPositions = resultRemoteDataSource.getDriverPositions(sessionKey)
-
+//        val latestSession = resultRemoteDataSource.getLatestSession()
+//        val sessionKey = latestSession.sessionKey ?: 0
+//
+//        val driverPositions = resultRemoteDataSource.getDriverPositions(sessionKey)
+//
+//        return LastSessionResultSummary(
+//            sessionKey = sessionKey,
+//            sessionName = "${latestSession.countryName} Grand Prix",
+//            sessionType = latestSession.sessionType.toSessionType(),
+//            firstThreeDriverResultList = driverPositions.map { it.toDriver() }.take(3)
+//        )
+        val fakeSession = FakeSession.getFakeSession()
         return LastSessionResultSummary(
-            sessionKey = sessionKey,
-            sessionName = "${latestSession.countryName} Grand Prix",
-            sessionType = latestSession.sessionType.toSessionType(),
-            firstThreeDriverResultList = driverPositions.map { it.toDriver() }.take(3)
+            sessionKey = 0L,
+            sessionName = fakeSession.grandprixName,
+            sessionType = fakeSession.sessionType,
+            firstThreeDriverResultList = emptyList()
         )
     }
 }
