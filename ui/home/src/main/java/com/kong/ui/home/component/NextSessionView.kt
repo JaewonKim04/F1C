@@ -89,6 +89,7 @@ fun NextSessionView(
                     color = black
                 )
             }
+            Spacer(dp = 5.dp)
             Text(
                 text = session?.startDate.toDisplayText().orEmpty(),
                 style = Regular14,
