@@ -64,8 +64,10 @@ fun MainScreen() {
                     animationSpec = tween(200)
                 )
             },
-        ) { backStackEntry ->
-            CalendarScreen()
+        ) { _ ->
+            CalendarScreen(
+                navController = navController
+            )
         }
     }
 }

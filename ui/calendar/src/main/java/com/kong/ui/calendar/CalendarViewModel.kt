@@ -14,5 +14,11 @@ class CalendarViewModel @Inject constructor() : ViewModel(),
     override val container: Container<CalendarState, CalendarSideEffect> =
         container(CalendarState())
 
+    fun onClickNextMonth() = intent {
+        reduce { state.copy(showingYearMonth = state.showingYearMonth.plusMonths(1)) }
+    }
 
+    fun onClickBeforeMonth() = intent {
+        reduce { state.copy(showingYearMonth = state.showingYearMonth.minusMonths(1)) }
+    }
 }

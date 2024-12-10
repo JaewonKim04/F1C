@@ -18,7 +18,7 @@ import com.kong.ui.core.theme.black
 import com.kong.ui.core.theme.gray
 import com.kong.ui.core.theme.lightGray
 import com.kong.ui.core.util.CountryFlagUtil
-import com.kong.ui.core.util.DateUtil.toDisplayDate
+import com.kong.ui.core.util.DateUtil.toDisplayText
 
 @Composable
 fun SessionView(
@@ -60,7 +60,7 @@ fun SessionView(
         )
         Spacer(dp = 5.dp)
         Text(
-            text = session?.startDate.toDisplayDate().orEmpty(),
+            text = session?.startDate.toDisplayText().orEmpty(),
             style = Regular18,
             color = gray
         )

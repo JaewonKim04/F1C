@@ -7,18 +7,26 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.kong.ui.calendar.component.CalendarMonthView
+import com.kong.ui.calendar.component.CalendarTopBar
 import org.orbitmvi.orbit.compose.collectAsState
 
 @Composable
 fun CalendarScreen(
-    viewModel: CalendarViewModel = hiltViewModel()
+    viewModel: CalendarViewModel = hiltViewModel(),
+    navController: NavController
 ) {
     val state by viewModel.collectAsState()
 
     Scaffold(
         topBar = {
-
+            CalendarTopBar(
+                state = state,
+                onClickBack = { navController.popBackStack() },
+                onClickNextMonth = viewModel::onClickNextMonth,
+                onClickBeforeMonth = viewModel::onClickBeforeMonth
+            )
         }
     ) { paddingValues ->
         Column(modifier = Modifier.padding(paddingValues)) {

@@ -11,7 +11,7 @@ import java.util.Calendar
 
 object DateUtil {
 
-    fun LocalDateTime?.toDisplayDate(): String? =
+    fun LocalDateTime?.toDisplayText(): String? =
         this?.format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm"))
 
 
@@ -20,6 +20,9 @@ object DateUtil {
         val period = Period.between(current.toLocalDate(), this.toLocalDate())
         return period.days
     }
+
+    fun YearMonth.toDisplayText(): String =
+        this.format(DateTimeFormatter.ofPattern("yyyy.MM"))
 
     fun YearMonth.getLocalDate(weekOfMonth: Int, dayOfWeek: DayOfWeek): LocalDate? {
         val calendar = this.getCalendarInstance()

@@ -20,7 +20,7 @@ fun TopBar(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 10.dp, vertical = 10.dp),
+            .padding(10.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         onClickBack?.let {

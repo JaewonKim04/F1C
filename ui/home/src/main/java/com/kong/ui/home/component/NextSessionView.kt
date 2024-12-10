@@ -31,7 +31,7 @@ import com.kong.ui.core.theme.lightGray
 import com.kong.ui.core.theme.white
 import com.kong.ui.core.util.CountryFlagUtil
 import com.kong.ui.core.util.DateUtil.getLeftDay
-import com.kong.ui.core.util.DateUtil.toDisplayDate
+import com.kong.ui.core.util.DateUtil.toDisplayText
 
 @Composable
 fun NextSessionView(
@@ -90,7 +90,7 @@ fun NextSessionView(
                 )
             }
             Text(
-                text = session?.startDate.toDisplayDate().orEmpty(),
+                text = session?.startDate.toDisplayText().orEmpty(),
                 style = Regular14,
                 color = lightGray
             )
