@@ -10,7 +10,7 @@ interface ResultRemoteDataSource {
 
     suspend fun getSession(sessionKey: Long): SessionResponse
 
-    suspend fun getDriverPositions(sessionKey: Long): List<DriverResultResponse>
+    suspend fun getDriverPositions(season: Int, round: Int): List<DriverResultResponse>
 
     suspend fun getSessionSummaries(sessionKey: Long): List<String>
 }

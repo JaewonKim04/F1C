@@ -19,7 +19,7 @@ class ResultRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getDriverResults(sessionKey: Long): List<DriverResult> {
-        return resultRemoteDataSource.getDriverPositions(sessionKey).map {
+        return resultRemoteDataSource.getDriverPositions(2024, 1).map {
             DriverResult( // TODO driver result 값 확인
                 driver = it.toDriver(),
                 gapToLeader = 0f,
@@ -34,23 +34,21 @@ class ResultRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getLastSessionSummary(): LastSessionResultSummary {
-//        val latestSession = resultRemoteDataSource.getLatestSession()
-//        val sessionKey = latestSession.sessionKey ?: 0
-//
-//        val driverPositions = resultRemoteDataSource.getDriverPositions(sessionKey)
-//
-//        return LastSessionResultSummary(
-//            sessionKey = sessionKey,
-//            sessionName = "${latestSession.countryName} Grand Prix",
-//            sessionType = latestSession.sessionType.toSessionType(),
-//            firstThreeDriverResultList = driverPositions.map { it.toDriver() }.take(3)
-//        )
-        val fakeSession = FakeSession.getFakeSession()
+        val latestSession = resultRemoteDataSource.getLatestSession()
+
+        val season = latestSession.season ?: 0
+        val round = latestSession.round ?: 0
+        val driverPositions = resultRemoteDataSource.getDriverPositions(
+            season = season,
+            round = round
+        )
+
         return LastSessionResultSummary(
-            sessionKey = 0L,
-            sessionName = fakeSession.grandprixName,
-            sessionType = fakeSession.sessionType,
-            firstThreeDriverResultList = emptyList()
+            season = season,
+            round = round,
+            sessionName = latestSession.raceName.orEmpty(),
+            sessionType = latestSession.raceType.toSessionType(),
+            firstThreeDriverResultList = driverPositions.map { it.toDriver() }.take(3)
         )
     }
 }

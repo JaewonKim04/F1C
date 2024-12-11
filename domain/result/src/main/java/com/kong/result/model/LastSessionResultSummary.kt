@@ -4,7 +4,8 @@ import com.kong.common.Driver
 import com.kong.common.SessionType
 
 data class LastSessionResultSummary(
-    val sessionKey: Long,
+    val season: Int,
+    val round: Int,
     val sessionName: String,
     val sessionType: SessionType,
     val firstThreeDriverResultList: List<Driver>

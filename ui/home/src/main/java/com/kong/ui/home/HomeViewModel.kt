@@ -45,9 +45,9 @@ class HomeViewModel @Inject constructor(
     }
 
     fun onClickLastSessionResult() = intent {
-        postSideEffect(
-            HomeSideEffect.StartSessionResult(state.lastSessionResultSummary?.sessionKey ?: 0)
-        )
+//        postSideEffect(
+//            HomeSideEffect.StartSessionResult(state.lastSessionResultSummary?.sessionKey ?: 0)
+//        )
     }
 
     fun onClickNextSession() = intent {

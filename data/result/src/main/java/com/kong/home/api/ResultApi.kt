@@ -9,7 +9,7 @@ import retrofit2.http.Path
 
 interface ResultApi {
 
-    @GET("sessions/latest")
+    @GET("schedules/latest/finished")
     suspend fun getLatestSession(): F1CServerResponse<LatestSessionResponse>
 
     @GET("sessions/{sessionKey}")
@@ -17,9 +17,10 @@ interface ResultApi {
         @Path("sessionKey") sessionKey: Long
     ): F1CServerResponse<SessionResponse>
 
-    @GET("positions/{sessionKey}/rankings")
+    @GET("results/{SEASON}/{ROUND}/rankings")
     suspend fun getDriverPositions(
-        @Path("sessionKey") sessionKey: Long
+        @Path("SEASON") season: Int,
+        @Path("ROUND") round: Int
     ): F1CServerResponse<List<DriverResultResponse>>
 
     @GET("summaries/sessions/{sessionKey}")
