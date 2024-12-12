@@ -14,23 +14,12 @@ class ResultRepositoryImpl @Inject constructor(
     private val resultRemoteDataSource: ResultRemoteDataSource
 ) : ResultRepository {
 
-    override suspend fun getSession(sessionKey: Long): Session {
-        return resultRemoteDataSource.getSession(sessionKey).toModel()
+    override suspend fun getSessionResult(season: Int, round: Int): Session {
+        return resultRemoteDataSource.getSession(season = season, round = round).toModel()
     }
 
-    override suspend fun getDriverResults(sessionKey: Long): List<DriverResult> {
-        return resultRemoteDataSource.getDriverPositions(2024, 1).map {
-            DriverResult( // TODO driver result 값 확인
-                driver = it.toDriver(),
-                gapToLeader = 0f,
-                interval = 0f,
-                sessionTime = LocalDateTime.now()
-            )
-        }
-    }
-
-    override suspend fun getSessionSummaries(sessionKey: Long): List<String> {
-        return resultRemoteDataSource.getSessionSummaries(sessionKey).take(3)
+    override suspend fun getSessionAnalyzes(season: Int, round: Int): List<String> {
+        return resultRemoteDataSource.getSessionSummaries(season = season, round = round).take(3)
     }
 
     override suspend fun getLastSessionSummary(): LastSessionResultSummary {
@@ -38,17 +27,17 @@ class ResultRepositoryImpl @Inject constructor(
 
         val season = latestSession.season ?: 0
         val round = latestSession.round ?: 0
-        val driverPositions = resultRemoteDataSource.getDriverPositions(
+        val driverPositions = resultRemoteDataSource.getSession(
             season = season,
             round = round
-        )
+        ).drivers.orEmpty()
 
         return LastSessionResultSummary(
             season = season,
             round = round,
             sessionName = latestSession.raceName.orEmpty(),
             sessionType = latestSession.raceType.toSessionType(),
-            firstThreeDriverResultList = driverPositions.map { it.toDriver() }.take(3)
+            firstThreeDriverResultList = driverPositions.map { it.toModel().driver }.take(3)
         )
     }
 }

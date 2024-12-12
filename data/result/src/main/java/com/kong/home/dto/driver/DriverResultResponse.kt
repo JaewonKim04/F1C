@@ -1,0 +1,31 @@
+package com.kong.home.dto.driver
+
+import com.kong.common.Driver
+import com.kong.result.model.DriverResult
+
+data class DriverResultResponse(
+    val driver: DriverResponse?,
+    val position: Int?,
+    val constructor: ConstructorResponse?,
+    val status: String?,
+    val timeText: String?
+) {
+
+    fun toModel() = DriverResult(
+        driver = getDriverModel(),
+        timeText = timeText.orEmpty(),
+        isFinishedSession = status == FINISH_STATUS
+    )
+
+    private fun getDriverModel() = Driver(
+        fullName = driver?.fullNameKo.orEmpty(),
+        broadcastName = driver?.code.orEmpty(),
+        headshotUrl = driver?.headshotUrl.orEmpty(),
+        teamName = constructor?.name.orEmpty(),
+        teamColorHexCode = constructor?.color.orEmpty()
+    )
+
+    companion object {
+        private const val FINISH_STATUS = "Finished"
+    }
+}

@@ -8,5 +8,5 @@ class GetSessionByKeyUseCase @Inject constructor(
     private val resultRepository: ResultRepository
 ) {
 
-    suspend operator fun invoke(sessionKey: Long): Session = resultRepository.getSession(sessionKey)
+    suspend operator fun invoke(sessionKey: Long): Session = resultRepository.getSessionResult(sessionKey)
 }

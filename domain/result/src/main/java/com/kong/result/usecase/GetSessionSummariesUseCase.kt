@@ -8,5 +8,5 @@ class GetSessionSummariesUseCase @Inject constructor(
 ) {
 
     suspend operator fun invoke(sessionKey: Long): List<String> =
-        resultRepository.getSessionSummaries(sessionKey)
+        resultRepository.getSessionAnalyzes(sessionKey)
 }

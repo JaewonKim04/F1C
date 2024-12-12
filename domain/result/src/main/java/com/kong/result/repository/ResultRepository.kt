@@ -1,16 +1,13 @@
 package com.kong.result.repository
 
 import com.kong.common.Session
-import com.kong.result.model.DriverResult
 import com.kong.result.model.LastSessionResultSummary
 
 interface ResultRepository {
 
-    suspend fun getSession(sessionKey: Long): Session
+    suspend fun getSessionResult(season: Int, round: Int): Session
 
-    suspend fun getDriverResults(sessionKey: Long): List<DriverResult>
-
-    suspend fun getSessionSummaries(sessionKey: Long): List<String>
+    suspend fun getSessionAnalyzes(season: Int, round: Int): List<String>
 
     suspend fun getLastSessionSummary(): LastSessionResultSummary
 }

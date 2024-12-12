@@ -16,4 +16,4 @@ val qualifyingBackground = Color(0xFFE2BEFF)
 val raceBackground = Color(0xFFFF9D93)
 
 fun getColorFromHexCode(hexCode: String): Color =
-    Color(android.graphics.Color.parseColor("#$hexCode"))
+    Color(android.graphics.Color.parseColor(hexCode))

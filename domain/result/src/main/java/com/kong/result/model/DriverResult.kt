@@ -5,7 +5,6 @@ import java.time.LocalDateTime
 
 data class DriverResult(
     val driver: Driver,
-    val sessionTime: LocalDateTime,
-    val interval: Float,
-    val gapToLeader: Float
+    val timeText: String,
+    val isFinishedSession: Boolean
 )
