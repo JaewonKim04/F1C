@@ -2,6 +2,8 @@ package com.kong.ui.home
 
 import androidx.lifecycle.ViewModel
 import com.kong.domain.calendar.usecase.GetNextSessionUseCase
+import com.kong.domain.core.onComplete
+import com.kong.domain.core.onSuccess
 import com.kong.result.usecase.GetLastSessionResultSummaryUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import org.orbitmvi.orbit.Container
@@ -24,12 +26,11 @@ class HomeViewModel @Inject constructor(
 
     private fun getLastSessionResultSummary() = intent {
         reduce { state.copy(isLastSessionLoading = true) }
-        val sessionResult = getLastSessionResultSummaryUseCase()
-        reduce {
-            state.copy(
-                lastSessionResultSummary = sessionResult,
-                isLastSessionLoading = false
-            )
+
+        getLastSessionResultSummaryUseCase().onSuccess {
+            reduce { state.copy(lastSessionResultSummary = it) }
+        }.onComplete {
+            reduce { state.copy(isLastSessionLoading = false) }
         }
     }
 
