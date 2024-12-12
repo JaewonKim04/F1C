@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/domain/calendar" />
             <option value="$PROJECT_DIR$/domain/common" />
+            <option value="$PROJECT_DIR$/domain/core" />
             <option value="$PROJECT_DIR$/domain/result" />
             <option value="$PROJECT_DIR$/navigate" />
             <option value="$PROJECT_DIR$/network" />
