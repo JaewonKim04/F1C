@@ -52,7 +52,7 @@ fun SessionResultScreen(
                     Spacer(dp = 20.dp)
                     SessionView(
                         modifier = Modifier.padding(horizontal = 16.dp),
-                        session = state.session
+                        session = state.sessionResult
                     )
                     Spacer(dp = 10.dp)
                 }

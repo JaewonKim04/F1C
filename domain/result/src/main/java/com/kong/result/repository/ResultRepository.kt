@@ -1,11 +1,11 @@
 package com.kong.result.repository
 
-import com.kong.common.Session
 import com.kong.result.model.LastSessionResultSummary
+import com.kong.result.model.SessionResult
 
 interface ResultRepository {
 
-    suspend fun getSessionResult(season: Int, round: Int): Session
+    suspend fun getSessionResult(season: Int, round: Int): SessionResult
 
     suspend fun getSessionAnalyzes(season: Int, round: Int): List<String>
 

@@ -1,20 +1,17 @@
 package com.kong.home.repository
 
-import com.kong.common.Session
-import com.kong.common.fake.FakeSession
 import com.kong.common.toSessionType
 import com.kong.home.datasource.ResultRemoteDataSource
-import com.kong.result.model.DriverResult
 import com.kong.result.model.LastSessionResultSummary
+import com.kong.result.model.SessionResult
 import com.kong.result.repository.ResultRepository
-import java.time.LocalDateTime
 import javax.inject.Inject
 
 class ResultRepositoryImpl @Inject constructor(
     private val resultRemoteDataSource: ResultRemoteDataSource
 ) : ResultRepository {
 
-    override suspend fun getSessionResult(season: Int, round: Int): Session {
+    override suspend fun getSessionResult(season: Int, round: Int): SessionResult {
         return resultRemoteDataSource.getSession(season = season, round = round).toModel()
     }
 

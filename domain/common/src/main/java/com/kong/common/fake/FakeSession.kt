@@ -10,7 +10,7 @@ object FakeSession {
         sessionType = sessionType,
         grandprixName = "Bahrain Grand Prix",
         circuitName = "Sakhir Circuit",
-        countryCode = "BH",
+        countryName = "BH",
         startDate = LocalDateTime.now().plusDays(4)
     )
 }

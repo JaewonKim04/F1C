@@ -47,7 +47,7 @@ fun SessionView(
             }
 
             Text(
-                text = CountryFlagUtil.getFlagEmoji(session?.countryCode).orEmpty(),
+                text = CountryFlagUtil.getFlagEmoji(session?.countryName).orEmpty(),
                 fontSize = 60.sp
             )
         }

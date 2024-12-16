@@ -95,7 +95,7 @@ private fun ScheduleItem(
         }
 
         Text(
-            text = CountryFlagUtil.getFlagEmoji(session.countryCode).orEmpty(),
+            text = CountryFlagUtil.getFlagEmoji(session.countryName).orEmpty(),
             fontSize = 35.sp
         )
     }

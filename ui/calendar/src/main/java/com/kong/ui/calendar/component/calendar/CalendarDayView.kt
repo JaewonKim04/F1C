@@ -53,7 +53,7 @@ fun CalendarDay(
     sessionList: List<Session>,
 ) {
     val sessionName = remember(sessionList) {
-        sessionList.firstOrNull()?.countryCode
+        sessionList.firstOrNull()?.countryName
     }
 
     val indicatorStyle = remember(sessionList) {
