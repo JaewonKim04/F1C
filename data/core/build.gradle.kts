@@ -1,15 +1,14 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
-    id("kotlin-kapt")
 }
 
 android {
-    namespace = "com.kong.home"
+    namespace = "com.kong.data.core"
     compileSdk = 34
 
     defaultConfig {
-        minSdk = 26
+        minSdk = 24
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -34,8 +33,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":data:core"))
-    implementation(project(":domain:result"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -43,9 +40,4 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
-    implementation(libs.retrofit2.core)
-
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
 }

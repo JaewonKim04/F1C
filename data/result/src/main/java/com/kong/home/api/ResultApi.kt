@@ -1,6 +1,6 @@
 package com.kong.home.api
 
-import com.kong.home.dto.F1CServerResponse
+import com.kong.data.core.F1CServerResponse
 import com.kong.home.dto.LatestSessionResponse
 import com.kong.home.dto.session.SessionResultResponse
 import retrofit2.http.GET

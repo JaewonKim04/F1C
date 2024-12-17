@@ -1,6 +1,6 @@
 package com.kong.home.repository
 
-import com.kong.common.toSessionType
+import com.kong.common.SessionType
 import com.kong.home.datasource.ResultRemoteDataSource
 import com.kong.result.model.LastSessionResultSummary
 import com.kong.result.model.SessionResult
@@ -33,7 +33,7 @@ class ResultRepositoryImpl @Inject constructor(
             season = season,
             round = round,
             sessionName = latestSession.raceName.orEmpty(),
-            sessionType = latestSession.raceType.toSessionType(),
+            sessionType = SessionType.getSessionTypeFromString(latestSession.raceType),
             firstThreeDriverResultList = driverPositions.map { it.toModel().driver }.take(3)
         )
     }

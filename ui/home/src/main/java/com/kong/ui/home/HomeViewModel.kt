@@ -36,12 +36,10 @@ class HomeViewModel @Inject constructor(
 
     private fun getNextSession() = intent {
         reduce { state.copy(isNextSessionLoading = true) }
-        val nextSession = getNextSessionUseCase()
-        reduce {
-            state.copy(
-                nextSession = nextSession,
-                isNextSessionLoading = false
-            )
+        getNextSessionUseCase().onSuccess {
+            reduce { state.copy(nextSession = it) }
+        }.onComplete {
+            reduce { state.copy(isNextSessionLoading = false) }
         }
     }
 

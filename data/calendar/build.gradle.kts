@@ -9,7 +9,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        minSdk = 24
+        minSdk = 26
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -34,6 +34,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":data:core"))
 
     implementation(project(":domain:calendar"))
 
@@ -46,4 +47,6 @@ dependencies {
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
+
+    implementation(libs.retrofit2.core)
 }

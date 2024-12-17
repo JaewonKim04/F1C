@@ -9,7 +9,9 @@ enum class SessionType(val displayName: String) {
     PRACTICE1("Practice1"),
     PRACTICE2("Practice2"),
     PRACTICE3("Practice3");
-}
 
-fun String?.toSessionType() =
-    SessionType.entries.find { it.name.equals(this, ignoreCase = true) } ?: SessionType.RACE
+    companion object {
+        fun getSessionTypeFromString(value: String?): SessionType =
+            SessionType.entries.find { it.name.equals(value, ignoreCase = true) } ?: RACE
+    }
+}
