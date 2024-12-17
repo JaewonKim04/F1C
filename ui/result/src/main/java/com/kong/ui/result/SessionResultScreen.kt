@@ -24,13 +24,17 @@ import org.orbitmvi.orbit.compose.collectAsState
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun SessionResultScreen(
-    sessionKey: Long,
+    season: Int,
+    round: Int,
     navController: NavController,
     viewModel: SessionResultViewModel = hiltViewModel()
 ) {
 
     LaunchedEffect(Unit) {
-        viewModel.start(sessionKey)
+        viewModel.start(
+            season = season,
+            round = round
+        )
     }
 
     val state by viewModel.collectAsState()
@@ -52,7 +56,7 @@ fun SessionResultScreen(
                     Spacer(dp = 20.dp)
                     SessionView(
                         modifier = Modifier.padding(horizontal = 16.dp),
-                        session = state.sessionResult
+                        session = state.sessionResult?.session
                     )
                     Spacer(dp = 10.dp)
                 }

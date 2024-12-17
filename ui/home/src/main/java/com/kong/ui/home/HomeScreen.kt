@@ -21,8 +21,11 @@ fun HomeScreen(
             is HomeSideEffect.StartSessionResult -> {
                 navController.navigate(
                     NavScreens.SESSION_RESULT.route.replace(
-                        oldValue = "{sessionKey}",
-                        newValue = it.sessionKey.toString()
+                        oldValue = "{season}",
+                        newValue = it.season.toString()
+                    ).replace(
+                        oldValue = "{round}",
+                        newValue = it.round.toString()
                     )
                 )
             }

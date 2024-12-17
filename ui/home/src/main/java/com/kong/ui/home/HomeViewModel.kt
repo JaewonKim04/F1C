@@ -46,9 +46,13 @@ class HomeViewModel @Inject constructor(
     }
 
     fun onClickLastSessionResult() = intent {
-//        postSideEffect(
-//            HomeSideEffect.StartSessionResult(state.lastSessionResultSummary?.sessionKey ?: 0)
-//        )
+        val resultSummary = state.lastSessionResultSummary
+        postSideEffect(
+            HomeSideEffect.StartSessionResult(
+                season = resultSummary?.season ?: 0,
+                round = resultSummary?.round ?: 0
+            )
+        )
     }
 
     fun onClickNextSession() = intent {

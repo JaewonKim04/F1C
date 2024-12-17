@@ -2,7 +2,7 @@ package com.kong.ui.home
 
 sealed interface HomeSideEffect {
 
-    data class StartSessionResult(val sessionKey: Long) : HomeSideEffect
+    data class StartSessionResult(val season: Int, val round: Int) : HomeSideEffect
 
-    object StartCalendar : HomeSideEffect
+    data object StartCalendar : HomeSideEffect
 }

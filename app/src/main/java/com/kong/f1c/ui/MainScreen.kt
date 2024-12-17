@@ -42,10 +42,14 @@ fun MainScreen() {
                     animationSpec = tween(200)
                 )
             },
-            arguments = listOf(navArgument("sessionKey") { type = NavType.LongType })
+            arguments = listOf(
+                navArgument("season") { type = NavType.IntType },
+                navArgument("round") {type = NavType.IntType}
+            )
         ) { backStackEntry ->
             SessionResultScreen(
-                sessionKey = backStackEntry.arguments?.getLong("sessionKey") ?: 0,
+                season = backStackEntry.arguments?.getInt("season") ?: 0,
+                round = backStackEntry.arguments?.getInt("round") ?: 0,
                 navController = navController
             )
         }
