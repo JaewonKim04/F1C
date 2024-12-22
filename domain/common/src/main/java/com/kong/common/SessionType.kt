@@ -1,17 +1,17 @@
 package com.kong.common
 
-enum class SessionType(val displayName: String) {
+enum class SessionType(val displayName: String, val value: String) {
 
-    RACE("Race"),
-    SPRINT("Sprint"),
-    SPRINT_QUALIFYING("Sprint Qualifying"),
-    QUALIFYING("Qualifying"),
-    PRACTICE1("Practice1"),
-    PRACTICE2("Practice2"),
-    PRACTICE3("Practice3");
+    RACE("Race", "Race"),
+    SPRINT("Sprint", "Sprint"),
+    SPRINT_QUALIFYING("Sprint Qualifying", "SprintQualifying"),
+    QUALIFYING("Qualifying", "Qualifying"),
+    PRACTICE1("Practice1", "FirstPractice"),
+    PRACTICE2("Practice2", "SecondPractice"),
+    PRACTICE3("Practice3", "ThirdPractice");
 
     companion object {
         fun getSessionTypeFromString(value: String?): SessionType =
-            SessionType.entries.find { it.name.equals(value, ignoreCase = true) } ?: RACE
+            SessionType.entries.find { it.value.equals(value, ignoreCase = true) } ?: RACE
     }
 }
