@@ -34,7 +34,7 @@ class ResultRepositoryImpl @Inject constructor(
             round = round,
             sessionName = latestSession.raceName.orEmpty(),
             sessionType = SessionType.getSessionTypeFromString(latestSession.raceType),
-            firstThreeDriverResultList = driverPositions.map { it.toModel().driver }.take(3)
+            firstThreeDriverResultList = driverPositions.map { it.toModel() }.take(3)
         )
     }
 }

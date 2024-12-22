@@ -48,7 +48,7 @@ fun SessionView(
             }
 
             AsyncImage(
-                modifier = Modifier.size(60.dp),
+                modifier = Modifier.size(70.dp),
                 model = session?.circuitImageUrl,
                 contentDescription = null
             )

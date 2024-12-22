@@ -77,10 +77,10 @@ fun LastResultView(
             )
         }
         Spacer(10.dp)
-        lastSessionResultSummary?.firstThreeDriverResultList?.forEachIndexed { index, driver ->
+        lastSessionResultSummary?.firstThreeDriverResultList?.forEachIndexed { index, result ->
             LastResultDriverItem(
                 index = index,
-                driver = driver
+                driverResult = result
             )
             Spacer(dp = 8.dp)
         }

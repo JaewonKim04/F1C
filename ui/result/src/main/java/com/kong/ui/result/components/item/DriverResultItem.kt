@@ -29,6 +29,7 @@ import com.kong.ui.core.theme.Regular14
 import com.kong.ui.core.theme.black
 import com.kong.ui.core.theme.getColorFromHexCode
 import com.kong.ui.core.theme.gray
+import com.kong.ui.core.theme.lightGray
 import com.kong.ui.core.util.RankUtil
 
 @Composable
@@ -37,7 +38,13 @@ fun DriverResultItem(
     driverResult: DriverResult
 ) {
     val driver = remember(driverResult) { driverResult.driver }
-    val rankText = remember(index) { RankUtil.getRankText(index) }
+    val rankText = remember(index, driverResult) {
+        RankUtil.getRankText(
+            rankIndex = index,
+            isFinishedSession = driverResult.isFinishedSession
+        )
+    }
+
     Row(
         modifier = Modifier.padding(vertical = 3.dp),
         verticalAlignment = Alignment.CenterVertically
@@ -77,6 +84,13 @@ fun DriverResultItem(
             )
         }
 
+        Text(
+            text = driverResult.timeText.orEmpty(),
+            style = Regular14,
+            color = lightGray
+        )
+
+        Spacer(dp = 4.dp)
         Text(
             text = rankText,
             style = Regular14,

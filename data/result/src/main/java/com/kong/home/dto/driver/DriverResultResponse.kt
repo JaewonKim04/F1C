@@ -13,8 +13,8 @@ data class DriverResultResponse(
 
     fun toModel() = DriverResult(
         driver = getDriverModel(),
-        timeText = timeText.orEmpty(),
-        isFinishedSession = status == FINISH_STATUS
+        timeText = timeText ?: status,
+        isFinishedSession = status == FINISH_STATUS || status?.contains(PLUS_LAP_STATUS) ?: false
     )
 
     private fun getDriverModel() = Driver(
@@ -27,5 +27,6 @@ data class DriverResultResponse(
 
     companion object {
         private const val FINISH_STATUS = "Finished"
+        private const val PLUS_LAP_STATUS = "Lap"
     }
 }

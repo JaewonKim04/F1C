@@ -1,6 +1,5 @@
 package com.kong.result.model
 
-import com.kong.common.Driver
 import com.kong.common.SessionType
 
 data class LastSessionResultSummary(
@@ -8,5 +7,5 @@ data class LastSessionResultSummary(
     val round: Int,
     val sessionName: String,
     val sessionType: SessionType,
-    val firstThreeDriverResultList: List<Driver>
+    val firstThreeDriverResultList: List<DriverResult>
 )

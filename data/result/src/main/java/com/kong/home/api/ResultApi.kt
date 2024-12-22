@@ -18,7 +18,7 @@ interface ResultApi {
         @Path("ROUND") round: Int
     ): F1CServerResponse<SessionResultResponse>
 
-    @GET("/summaries/race/result")
+    @GET("summaries/race/result")
     suspend fun getSessionSummaries(
         @Query("season") season: Int,
         @Query("round") round: Int

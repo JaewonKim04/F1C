@@ -14,21 +14,28 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.kong.result.model.DriverResult
 import com.kong.ui.core.component.Spacer
-import com.kong.ui.core.theme.Bold14
+import com.kong.ui.core.theme.Bold16
+import com.kong.ui.core.theme.Regular12
 import com.kong.ui.core.theme.Regular14
 import com.kong.ui.core.theme.darkGray
 import com.kong.ui.core.theme.getColorFromHexCode
-import com.kong.ui.core.theme.lightGray
-import com.kong.common.Driver
-import com.kong.ui.core.theme.Bold16
-import com.kong.ui.core.theme.Regular12
 import com.kong.ui.core.theme.gray
+import com.kong.ui.core.theme.lightGray
 import com.kong.ui.core.util.RankUtil
 
 @Composable
-fun LastResultDriverItem(index: Int, driver: Driver) {
-    val rankText = remember(index) { RankUtil.getRankText(index) }
+fun LastResultDriverItem(index: Int, driverResult: DriverResult) {
+    val driver = remember(driverResult) {
+        driverResult.driver
+    }
+    val rankText = remember(index) {
+        RankUtil.getRankText(
+            rankIndex = index,
+            isFinishedSession = driverResult.isFinishedSession
+        )
+    }
     Row(verticalAlignment = Alignment.CenterVertically) {
         Box(
             modifier = Modifier
