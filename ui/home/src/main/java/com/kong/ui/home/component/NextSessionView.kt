@@ -46,61 +46,64 @@ fun NextSessionView(
             .clickable { onClick() }
             .padding(16.dp)
     ) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Column(modifier = Modifier.weight(1f)) {
+        if (session != null) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        text = "다음경기",
+                        style = Regular14,
+                        color = lightGray
+                    )
+                    Spacer(3.dp)
+                    Text(
+                        text = session?.grandprixName.orEmpty(),
+                        style = Bold24,
+                        color = darkGray
+                    )
+                }
                 Text(
-                    text = "다음경기",
+                    text = CountryFlagUtil.getFlagEmoji(session?.countryName).orEmpty(),
+                    fontSize = 40.sp
+                )
+            }
+
+            Spacer(3.dp)
+            Text(
+                text = session?.sessionType?.displayName.orEmpty(),
+                style = Bold18,
+                color = darkGray
+            )
+            Spacer(10.dp)
+
+            Row(verticalAlignment = Alignment.Bottom) {
+                val leftDay = session?.startDate?.getLeftDay() ?: -1
+                val text = when {
+                    leftDay > 0 -> "${leftDay}일 남음"
+                    leftDay == 0 -> "오늘"
+                    else -> ""
+                }
+                if (text.isNotEmpty()) {
+                    Text(
+                        modifier = Modifier.padding(end = 4.dp),
+                        text = text,
+                        style = Bold16,
+                        color = black
+                    )
+                }
+                Spacer(dp = 5.dp)
+                Text(
+                    text = session?.startDate.toDisplayText().orEmpty(),
                     style = Regular14,
                     color = lightGray
                 )
-                Spacer(3.dp)
-                Text(
-                    text = session?.grandprixName.orEmpty(),
-                    style = Bold24,
-                    color = darkGray
-                )
             }
-            Text(
-                text = CountryFlagUtil.getFlagEmoji(session?.countryName).orEmpty(),
-                fontSize = 40.sp
-            )
+            Spacer(dp = 16.dp)
         }
-
-        Spacer(3.dp)
-        Text(
-            text = session?.sessionType?.displayName.orEmpty(),
-            style = Bold18,
-            color = darkGray
-        )
-        Spacer(10.dp)
-
-        Row(verticalAlignment = Alignment.Bottom) {
-            val leftDay = session?.startDate?.getLeftDay() ?: -1
-            val text = when {
-                leftDay > 0 -> "${leftDay}일 남음"
-                leftDay == 0 -> "오늘"
-                else -> ""
-            }
-            if (text.isNotEmpty()) {
-                Text(
-                    modifier = Modifier.padding(end = 4.dp),
-                    text = text,
-                    style = Bold16,
-                    color = black
-                )
-            }
-            Spacer(dp = 5.dp)
-            Text(
-                text = session?.startDate.toDisplayText().orEmpty(),
-                style = Regular14,
-                color = lightGray
-            )
-        }
-        Spacer(dp = 16.dp)
 
         Row(
             modifier = Modifier.padding(vertical = 5.dp),
-            verticalAlignment = Alignment.CenterVertically) {
+            verticalAlignment = Alignment.CenterVertically
+        ) {
             Icon(
                 modifier = Modifier.size(18.dp),
                 painter = painterResource(id = R.drawable.baseline_calendar_today_24),

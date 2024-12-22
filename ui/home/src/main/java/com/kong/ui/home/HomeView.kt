@@ -38,17 +38,15 @@ fun HomeView(viewModel: HomeViewModel) {
                     onClick = viewModel::onClickLastSessionResult
                 )
             }
-            Spacer(dp = 30.dp)
+            Spacer(dp = 20.dp)
 
             if (state.isNextSessionLoading) {
                 NextSessionLoadingView(onClickCalendar = viewModel::onClickNextSession)
             } else {
-                if (state.nextSession != null) {
-                    NextSessionView(
-                        session = state.nextSession,
-                        onClick = viewModel::onClickNextSession
-                    )
-                }
+                NextSessionView(
+                    session = state.nextSession,
+                    onClick = viewModel::onClickNextSession
+                )
             }
         }
     }
