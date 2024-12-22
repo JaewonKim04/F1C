@@ -23,6 +23,7 @@ data class NextSessionResponse(
         grandprixName = raceName.orEmpty(),
         circuitName = circuitName.orEmpty(),
         countryName = circuitId.orEmpty(),
+        circuitImageUrl = trackIconUrl.orEmpty(),
         startDate = LocalDateTime.parse(
             raceDatetime,
             DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")

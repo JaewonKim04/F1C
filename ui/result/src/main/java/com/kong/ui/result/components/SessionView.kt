@@ -2,12 +2,14 @@ package com.kong.ui.result.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 import com.kong.common.Session
 import com.kong.ui.core.component.Spacer
 import com.kong.ui.core.theme.Bold18
@@ -17,7 +19,6 @@ import com.kong.ui.core.theme.Regular18
 import com.kong.ui.core.theme.black
 import com.kong.ui.core.theme.gray
 import com.kong.ui.core.theme.lightGray
-import com.kong.ui.core.util.CountryFlagUtil
 import com.kong.ui.core.util.DateUtil.toDisplayText
 
 @Composable
@@ -46,9 +47,10 @@ fun SessionView(
                 )
             }
 
-            Text(
-                text = CountryFlagUtil.getFlagEmoji(session?.countryName).orEmpty(),
-                fontSize = 60.sp
+            AsyncImage(
+                modifier = Modifier.size(60.dp),
+                model = session?.circuitImageUrl,
+                contentDescription = null
             )
         }
 

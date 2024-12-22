@@ -12,10 +12,6 @@ fun HomeScreen(
     navController: NavController,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
-    LaunchedEffect(Unit) {
-        viewModel.start()
-    }
-
     viewModel.collectSideEffect {
         when (it) {
             is HomeSideEffect.StartSessionResult -> {

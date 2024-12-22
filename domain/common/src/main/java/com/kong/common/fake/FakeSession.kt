@@ -11,6 +11,7 @@ object FakeSession {
         grandprixName = "Bahrain Grand Prix",
         circuitName = "Sakhir Circuit",
         countryName = "BH",
+        circuitImageUrl = "https://",
         startDate = LocalDateTime.now().plusDays(4)
     )
 }

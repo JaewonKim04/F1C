@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -14,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 import com.kong.common.Session
 import com.kong.common.SessionType
 import com.kong.common.fake.FakeSession
@@ -28,7 +30,6 @@ import com.kong.ui.core.theme.darkGray
 import com.kong.ui.core.theme.gray
 import com.kong.ui.core.theme.qualifyingBackground
 import com.kong.ui.core.theme.raceBackground
-import com.kong.ui.core.util.CountryFlagUtil
 import com.kong.ui.core.util.DateUtil.toDisplayText
 import java.time.LocalDate
 
@@ -94,9 +95,10 @@ private fun ScheduleItem(
             )
         }
 
-        Text(
-            text = CountryFlagUtil.getFlagEmoji(session.countryName).orEmpty(),
-            fontSize = 35.sp
+        AsyncImage(
+            modifier = Modifier.size(40.dp),
+            model = session.circuitImageUrl,
+            contentDescription = null
         )
     }
 }

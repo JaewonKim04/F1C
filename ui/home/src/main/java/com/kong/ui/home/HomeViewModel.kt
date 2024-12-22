@@ -19,6 +19,10 @@ class HomeViewModel @Inject constructor(
 
     override val container: Container<HomeState, HomeSideEffect> = container(HomeState())
 
+    init {
+        start()
+    }
+
     fun start() {
         getLastSessionResultSummary()
         getNextSession()

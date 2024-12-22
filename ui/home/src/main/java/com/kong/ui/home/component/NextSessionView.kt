@@ -16,7 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 import com.kong.common.Session
 import com.kong.kong.core.R
 import com.kong.ui.core.component.Spacer
@@ -29,7 +29,6 @@ import com.kong.ui.core.theme.darkGray
 import com.kong.ui.core.theme.gray
 import com.kong.ui.core.theme.lightGray
 import com.kong.ui.core.theme.white
-import com.kong.ui.core.util.CountryFlagUtil
 import com.kong.ui.core.util.DateUtil.getLeftDay
 import com.kong.ui.core.util.DateUtil.toDisplayText
 
@@ -56,27 +55,29 @@ fun NextSessionView(
                     )
                     Spacer(3.dp)
                     Text(
-                        text = session?.grandprixName.orEmpty(),
+                        text = session.grandprixName,
                         style = Bold24,
                         color = darkGray
                     )
                 }
-                Text(
-                    text = CountryFlagUtil.getFlagEmoji(session?.countryName).orEmpty(),
-                    fontSize = 40.sp
+
+                AsyncImage(
+                    modifier = Modifier.size(45.dp),
+                    model = session.circuitImageUrl,
+                    contentDescription = null
                 )
             }
 
             Spacer(3.dp)
             Text(
-                text = session?.sessionType?.displayName.orEmpty(),
+                text = session.sessionType.displayName,
                 style = Bold18,
                 color = darkGray
             )
             Spacer(10.dp)
 
             Row(verticalAlignment = Alignment.Bottom) {
-                val leftDay = session?.startDate?.getLeftDay() ?: -1
+                val leftDay = session.startDate.getLeftDay()
                 val text = when {
                     leftDay > 0 -> "${leftDay}일 남음"
                     leftDay == 0 -> "오늘"
@@ -92,7 +93,7 @@ fun NextSessionView(
                 }
                 Spacer(dp = 5.dp)
                 Text(
-                    text = session?.startDate.toDisplayText().orEmpty(),
+                    text = session.startDate.toDisplayText().orEmpty(),
                     style = Regular14,
                     color = lightGray
                 )

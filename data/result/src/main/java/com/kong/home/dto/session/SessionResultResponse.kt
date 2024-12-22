@@ -23,6 +23,7 @@ data class SessionResultResponse(
             grandprixName = raceName.orEmpty(),
             circuitName = circuit?.circuitName.orEmpty(),
             countryName = circuit?.country.orEmpty(),
+            circuitImageUrl = circuit?.trackIconUrl.orEmpty(),
             startDate = LocalDateTime.parse(
                 raceDatetime.orEmpty(),
                 DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")
