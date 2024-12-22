@@ -25,7 +25,7 @@ data class NextSessionResponse(
         countryName = circuitId.orEmpty(),
         startDate = LocalDateTime.parse(
             raceDatetime,
-            DateTimeFormatter.ofPattern("yyyy-MM-dd`T`HH:mm")
+            DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")
         )
     )
 }

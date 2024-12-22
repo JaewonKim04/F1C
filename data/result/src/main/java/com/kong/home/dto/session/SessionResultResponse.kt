@@ -25,7 +25,7 @@ data class SessionResultResponse(
             countryName = circuit?.country.orEmpty(),
             startDate = LocalDateTime.parse(
                 raceDatetime.orEmpty(),
-                DateTimeFormatter.ofPattern("yyyy-MM-dd`T`HH:mm")
+                DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")
             )
         ),
         driverResultList = drivers?.map { it.toModel() }.orEmpty()
