@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/data/calendar" />
+            <option value="$PROJECT_DIR$/data/core" />
             <option value="$PROJECT_DIR$/data/result" />
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/domain/calendar" />
