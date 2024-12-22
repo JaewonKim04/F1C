@@ -95,7 +95,8 @@ fun CalendarDay(
                     Text(
                         text = sessionName.orEmpty(),
                         style = Regular14,
-                        color = white
+                        color = white,
+                        maxLines = 1
                     )
                 }
             }
