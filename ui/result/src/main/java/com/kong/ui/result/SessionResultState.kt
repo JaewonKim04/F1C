@@ -9,9 +9,11 @@ data class SessionResultState(
     val round: Int = 0,
 
     val sessionResult: SessionResult? = null,
-    val driverResults: List<DriverResult> = emptyList(),
 
     val summaries: List<String> = emptyList(),
 
     val selectedResultType: ResultType = ResultType.RANK
-)
+) {
+
+    val driverResults: List<DriverResult> get() = sessionResult?.driverResultList.orEmpty()
+}
