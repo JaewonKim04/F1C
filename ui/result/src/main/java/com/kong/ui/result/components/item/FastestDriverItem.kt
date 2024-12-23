@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -25,11 +26,15 @@ import com.kong.ui.core.theme.Bold18
 import com.kong.ui.core.theme.Regular12
 import com.kong.ui.core.theme.Regular16
 import com.kong.ui.core.theme.black
+import com.kong.ui.core.theme.fastestLapColor
 import com.kong.ui.core.theme.getColorFromHexCode
 import com.kong.ui.core.theme.gray
 
 @Composable
-fun FastestDriverItem(driverResult: DriverResult) {
+fun FastestDriverItem(
+    isFastestDriver: Boolean,
+    driverResult: DriverResult
+) {
     val driver = remember(driverResult) {
         driverResult.driver
     }
@@ -63,20 +68,32 @@ fun FastestDriverItem(driverResult: DriverResult) {
                     )
                 }
                 Spacer(dp = 5.dp)
-                Text(
-                    text = driverResult.timeText.orEmpty(),
-                    style = Regular16,
-                    color = gray
-                )
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = driverResult.timeText.orEmpty(),
+                        style = Regular16,
+                        color = gray
+                    )
+                    if (isFastestDriver) {
+                        Spacer(dp = 3.dp)
+                        Icon(
+                            modifier = Modifier.size(20.dp),
+                            painter = painterResource(id = R.drawable.baseline_access_time_24),
+                            tint = fastestLapColor,
+                            contentDescription = null
+                        )
+                    }
+                }
             }
 
             AsyncImage(
-                modifier = Modifier.size(38.dp),
+                modifier = Modifier.size(45.dp),
                 model = driver.headshotUrl,
                 error = painterResource(id = R.drawable.baseline_person_24),
                 contentDescription = null
             )
         }
+        Spacer(dp = 7.dp)
         HorizontalDivider()
     }
 }
@@ -95,6 +112,7 @@ private fun FastestDriverItem_Preview() {
             ),
             timeText = "1.32.121",
             isFinishedSession = true
-        )
+        ),
+        isFastestDriver = true
     )
 }

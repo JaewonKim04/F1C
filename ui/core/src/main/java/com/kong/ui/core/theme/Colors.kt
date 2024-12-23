@@ -15,5 +15,11 @@ val primary = Color(0xFFFF1801)
 val qualifyingBackground = Color(0xFFE2BEFF)
 val raceBackground = Color(0xFFFF9D93)
 
+val fastestLapColor = Color(0xFF8D00FF)
+
 fun getColorFromHexCode(hexCode: String): Color =
-    Color(android.graphics.Color.parseColor(hexCode))
+    try {
+        Color(android.graphics.Color.parseColor(hexCode))
+    } catch (e: Exception) {
+        black
+    }

@@ -11,7 +11,7 @@ data class FastestDriverResponse(
 
     fun toModel() = DriverResult(
         driver = driver.toModel(constructor),
-        timeText = "${time.orEmpty()} at ${lap}Lap",
+        timeText = "${time.orEmpty()} - Lap${lap}",
         isFinishedSession = true
     )
 }
