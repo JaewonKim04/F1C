@@ -2,6 +2,7 @@ package com.kong.home.repository
 
 import com.kong.common.SessionType
 import com.kong.home.datasource.ResultRemoteDataSource
+import com.kong.result.model.DriverResult
 import com.kong.result.model.LastSessionResultSummary
 import com.kong.result.model.SessionResult
 import com.kong.result.repository.ResultRepository
@@ -37,4 +38,8 @@ class ResultRepositoryImpl @Inject constructor(
             firstThreeDriverResultList = driverPositions.map { it.toModel() }.take(3)
         )
     }
+
+    override suspend fun getFastestDrivers(season: Int, round: Int): List<DriverResult> =
+        resultRemoteDataSource.getFastestDrivers(season = season, round = round)
+            .map { it.toModel() }
 }

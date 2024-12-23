@@ -2,6 +2,7 @@ package com.kong.home.datasource
 
 import com.kong.home.api.ResultApi
 import com.kong.home.dto.LatestSessionResponse
+import com.kong.home.dto.driver.FastestDriverResponse
 import com.kong.home.dto.session.SessionResultResponse
 import javax.inject.Inject
 
@@ -17,4 +18,7 @@ class ResultRemoteDataSourceImpl @Inject constructor(
 
     override suspend fun getSessionSummaries(season: Int, round: Int): List<String> =
         resultApi.getSessionSummaries(season = season, round = round).data
+
+    override suspend fun getFastestDrivers(season: Int, round: Int): List<FastestDriverResponse> =
+        resultApi.getFastestDrivers(season = season, round = round).data
 }

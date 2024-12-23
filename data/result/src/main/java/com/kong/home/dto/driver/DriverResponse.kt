@@ -13,3 +13,11 @@ data class DriverResponse(
     val fullNameKo: String?,
     val headshotUrl: String?
 )
+
+fun DriverResponse?.toModel(constructor: ConstructorResponse?) = Driver(
+    fullName = this?.fullNameKo.orEmpty(),
+    broadcastName = this?.code.orEmpty(),
+    headshotUrl = this?.headshotUrl.orEmpty(),
+    teamName = constructor?.name.orEmpty(),
+    teamColorHexCode = constructor?.color.orEmpty()
+)

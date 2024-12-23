@@ -2,6 +2,7 @@ package com.kong.ui.result
 
 import androidx.lifecycle.ViewModel
 import com.kong.domain.core.onSuccess
+import com.kong.result.usecase.GetFastestDriverResultsUseCase
 import com.kong.result.usecase.GetSessionByKeyUseCase
 import com.kong.result.usecase.GetSessionSummariesUseCase
 import com.kong.ui.result.components.ResultType
@@ -14,7 +15,8 @@ import javax.inject.Inject
 @HiltViewModel
 class SessionResultViewModel @Inject constructor(
     private val getSessionByKeyUseCase: GetSessionByKeyUseCase,
-    private val getSessionSummariesUseCase: GetSessionSummariesUseCase
+    private val getSessionSummariesUseCase: GetSessionSummariesUseCase,
+    private val getFastestDriverResultsUseCase: GetFastestDriverResultsUseCase
 ) : ViewModel(),
     ContainerHost<SessionResultState, SessionResultSideEffect> {
 
@@ -25,6 +27,7 @@ class SessionResultViewModel @Inject constructor(
         intent { reduce { state.copy(season = season, round = round) } }
         getSessionByKey()
         getSessionSummaries()
+        getFastestLapDriverResults()
     }
 
     private fun getSessionByKey() = intent {
@@ -36,6 +39,12 @@ class SessionResultViewModel @Inject constructor(
     private fun getSessionSummaries() = intent {
         getSessionSummariesUseCase(season = state.season, round = state.round).onSuccess {
             reduce { state.copy(summaries = it) }
+        }
+    }
+
+    private fun getFastestLapDriverResults() = intent {
+        getFastestDriverResultsUseCase(season = state.season, round = state.round).onSuccess {
+            reduce { state.copy(fastestLapDriverResults = it) }
         }
     }
 

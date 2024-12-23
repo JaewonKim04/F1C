@@ -14,5 +14,7 @@ fun SessionAnalyzeView(state: SessionResultState) {
         if (state.summaries.isNotEmpty()) {
             SessionSummaryBanner(summaries = state.summaries)
         }
+
+        
     }
 }

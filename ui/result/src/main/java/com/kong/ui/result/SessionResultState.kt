@@ -11,6 +11,7 @@ data class SessionResultState(
     val sessionResult: SessionResult? = null,
 
     val summaries: List<String> = emptyList(),
+    val fastestLapDriverResults: List<DriverResult> = emptyList(),
 
     val selectedResultType: ResultType = ResultType.RANK
 ) {

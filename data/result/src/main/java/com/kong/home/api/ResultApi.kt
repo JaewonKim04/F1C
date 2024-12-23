@@ -2,6 +2,7 @@ package com.kong.home.api
 
 import com.kong.data.core.F1CServerResponse
 import com.kong.home.dto.LatestSessionResponse
+import com.kong.home.dto.driver.FastestDriverResponse
 import com.kong.home.dto.session.SessionResultResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -23,4 +24,10 @@ interface ResultApi {
         @Query("season") season: Int,
         @Query("round") round: Int
     ): F1CServerResponse<List<String>>
+
+    @GET("results/{SEASON}/{ROUND}/fastest-lap/3/results")
+    suspend fun getFastestDrivers(
+        @Path("SEASON") season: Int,
+        @Path("ROUND") round: Int
+    ): F1CServerResponse<List<FastestDriverResponse>>
 }
