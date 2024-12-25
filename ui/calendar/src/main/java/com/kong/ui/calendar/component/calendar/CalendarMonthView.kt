@@ -1,6 +1,7 @@
 package com.kong.ui.calendar.component.calendar
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import com.kong.ui.calendar.CalendarState
@@ -26,5 +27,6 @@ fun CalendarMonthView(
                 weekNumberOfMonth = weekNumber
             )
         }
+        HorizontalDivider()
     }
 }

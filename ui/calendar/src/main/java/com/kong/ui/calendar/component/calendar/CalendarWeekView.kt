@@ -34,7 +34,7 @@ fun CalendarWeekView(
                 CalendarDay(
                     modifier = Modifier.weight(1f),
                     date = date,
-                    sessionList = state.localDateAndSessions.get(date).orEmpty()
+                    sessionList = state.localDateAndSessions[date].orEmpty()
                 )
             }
         }

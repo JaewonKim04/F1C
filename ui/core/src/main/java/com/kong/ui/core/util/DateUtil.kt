@@ -1,6 +1,7 @@
 package com.kong.ui.core.util
 
 import java.time.DayOfWeek
+import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.Period
@@ -28,8 +29,7 @@ object DateUtil {
         val weekOfYear = calendar[Calendar.WEEK_OF_YEAR]
         calendar.setWeekDate(this.year, weekOfYear + weekOfMonth, dayOfWeek.value)
 
-        val localDate =
-            LocalDateTime.ofInstant(calendar.toInstant(), ZoneId.systemDefault()).toLocalDate()
+        val localDate = calendar.toLocalDate()
 
         return if (localDate.year == this.year && localDate.monthValue == this.monthValue) localDate else null
     }
@@ -45,5 +45,10 @@ object DateUtil {
         calendar[Calendar.MONTH] = this.monthValue - 1
         calendar[Calendar.DAY_OF_MONTH] = 1
         return calendar
+    }
+
+    private fun Calendar.toLocalDate(): LocalDate {
+        val instant = Instant.ofEpochMilli(this.timeInMillis)
+        return instant.atZone(ZoneId.systemDefault()).toLocalDate()
     }
 }
