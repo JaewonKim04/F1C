@@ -25,7 +25,7 @@ interface ResultApi {
         @Query("round") round: Int
     ): F1CServerResponse<List<String>>
 
-    @GET("results/{SEASON}/{ROUND}/fastest-lap/3/results")
+    @GET("results/{SEASON}/{ROUND}/fastest/3/laps")
     suspend fun getFastestDrivers(
         @Path("SEASON") season: Int,
         @Path("ROUND") round: Int

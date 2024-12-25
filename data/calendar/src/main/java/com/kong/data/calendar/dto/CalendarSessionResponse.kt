@@ -30,6 +30,8 @@ fun List<CalendarSessionResponse>.toModel() = map {
             DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm")
         )
     )
+}.sortedBy {
+    it.startDate
 }.groupBy {
     it.startDate.toLocalDate()
 }

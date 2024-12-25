@@ -39,6 +39,7 @@ fun FastestDriverItem(
         driverResult.driver
     }
     Column {
+        Spacer(dp = 7.dp)
         Row(
             modifier = Modifier.padding(vertical = 3.dp),
             verticalAlignment = Alignment.CenterVertically
@@ -47,7 +48,7 @@ fun FastestDriverItem(
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Box(
                         modifier = Modifier
-                            .size(width = 7.dp, height = 40.dp)
+                            .size(width = 7.dp, height = 30.dp)
                             .background(
                                 color = getColorFromHexCode(driver.teamColorHexCode),
                                 shape = RoundedCornerShape(3.dp)
