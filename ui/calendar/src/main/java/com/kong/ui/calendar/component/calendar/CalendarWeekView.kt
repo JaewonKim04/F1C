@@ -22,7 +22,7 @@ fun CalendarWeekView(
 
     Row {
         weekValues.forEach { calendarWeek ->
-            val date = showingYearMonth.getLocalDate(weekNumberOfMonth, calendarWeek.dayOfWeek)
+            val date = showingYearMonth.getLocalDate(weekNumberOfMonth, calendarWeek.displayOrder)
 
             if (date == null) {
                 Spacer(
