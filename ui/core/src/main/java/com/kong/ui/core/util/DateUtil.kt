@@ -24,9 +24,10 @@ object DateUtil {
     fun YearMonth.toDisplayText(): String =
         this.format(DateTimeFormatter.ofPattern("yyyy.MM"))
 
-    fun YearMonth.getLocalDate(weekOfMonth: Int, dayOfWeek: DayOfWeek): LocalDate? {
+    fun YearMonth.getLocalDate(weekOfMonth: Int, dayOfWeekDisplayOrder: Int): LocalDate? {
         val calendar = this.getCalendarInstance()
         val weekOfYear = calendar[Calendar.WEEK_OF_YEAR]
+        val dayOfWeek = DayOfWeek.of(dayOfWeekDisplayOrder + 1)
         calendar.setWeekDate(this.year, weekOfYear + weekOfMonth, dayOfWeek.value)
 
         val localDate = calendar.toLocalDate()
