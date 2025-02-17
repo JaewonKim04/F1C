@@ -1,8 +1,8 @@
-package com.kong.home.di
+package com.kong.data.home.di
 
-import com.kong.home.datasource.ResultRemoteDataSource
-import com.kong.home.datasource.ResultRemoteDataSourceImpl
-import com.kong.home.repository.ResultRepositoryImpl
+import com.kong.data.home.datasource.ResultRemoteDataSource
+import com.kong.data.home.datasource.ResultRemoteDataSourceImpl
+import com.kong.data.home.repository.ResultRepositoryImpl
 import com.kong.domain.result.repository.ResultRepository
 import dagger.Binds
 import dagger.Module

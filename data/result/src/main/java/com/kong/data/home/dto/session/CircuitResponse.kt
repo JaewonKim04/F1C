@@ -1,4 +1,4 @@
-package com.kong.home.dto.session
+package com.kong.data.home.dto.session
 
 data class CircuitResponse(
     val season: Int?,

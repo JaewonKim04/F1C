@@ -1,4 +1,4 @@
-package com.kong.home.dto.driver
+package com.kong.data.home.dto.driver
 
 import com.kong.domain.result.model.DriverResult
 

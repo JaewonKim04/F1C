@@ -1,7 +1,7 @@
-package com.kong.home.repository
+package com.kong.data.home.repository
 
 import com.kong.domain.common.SessionType
-import com.kong.home.datasource.ResultRemoteDataSource
+import com.kong.data.home.datasource.ResultRemoteDataSource
 import com.kong.domain.result.model.DriverResult
 import com.kong.domain.result.model.LastSessionResultSummary
 import com.kong.domain.result.model.SessionResult

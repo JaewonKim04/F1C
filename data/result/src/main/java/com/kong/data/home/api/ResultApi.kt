@@ -1,9 +1,9 @@
-package com.kong.home.api
+package com.kong.data.home.api
 
 import com.kong.data.core.F1CServerResponse
-import com.kong.home.dto.LatestSessionResponse
-import com.kong.home.dto.driver.FastestDriverResponse
-import com.kong.home.dto.session.SessionResultResponse
+import com.kong.data.home.dto.LatestSessionResponse
+import com.kong.data.home.dto.driver.FastestDriverResponse
+import com.kong.data.home.dto.session.SessionResultResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

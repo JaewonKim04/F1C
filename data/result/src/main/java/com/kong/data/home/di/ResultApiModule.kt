@@ -1,6 +1,6 @@
-package com.kong.home.di
+package com.kong.data.home.di
 
-import com.kong.home.api.ResultApi
+import com.kong.data.home.api.ResultApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

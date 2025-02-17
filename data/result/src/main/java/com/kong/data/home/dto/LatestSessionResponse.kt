@@ -1,4 +1,4 @@
-package com.kong.home.dto
+package com.kong.data.home.dto
 
 data class LatestSessionResponse(
     val season: Int?,

@@ -1,9 +1,9 @@
-package com.kong.home.datasource
+package com.kong.data.home.datasource
 
-import com.kong.home.api.ResultApi
-import com.kong.home.dto.LatestSessionResponse
-import com.kong.home.dto.driver.FastestDriverResponse
-import com.kong.home.dto.session.SessionResultResponse
+import com.kong.data.home.api.ResultApi
+import com.kong.data.home.dto.LatestSessionResponse
+import com.kong.data.home.dto.driver.FastestDriverResponse
+import com.kong.data.home.dto.session.SessionResultResponse
 import javax.inject.Inject
 
 class ResultRemoteDataSourceImpl @Inject constructor(

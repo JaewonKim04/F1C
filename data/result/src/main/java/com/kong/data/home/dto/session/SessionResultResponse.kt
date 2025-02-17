@@ -1,8 +1,8 @@
-package com.kong.home.dto.session
+package com.kong.data.home.dto.session
 
 import com.kong.domain.common.Session
 import com.kong.domain.common.SessionType
-import com.kong.home.dto.driver.DriverResultResponse
+import com.kong.data.home.dto.driver.DriverResultResponse
 import com.kong.domain.result.model.SessionResult
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter

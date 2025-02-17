@@ -1,4 +1,4 @@
-package com.kong.home.dto.driver
+package com.kong.data.home.dto.driver
 
 data class ConstructorResponse(
     val season: Int?,
