@@ -1,6 +1,6 @@
 package com.kong.data.calendar.datasource
 
-import com.kong.data.calendar.CalendarApi
+import com.kong.data.calendar.api.CalendarApi
 import com.kong.data.calendar.dto.CalendarSessionResponse
 import com.kong.data.calendar.dto.NextSessionResponse
 import java.time.YearMonth

@@ -1,4 +1,4 @@
-package com.kong.data.calendar
+package com.kong.data.calendar.api
 
 import com.kong.data.calendar.dto.CalendarSessionResponse
 import com.kong.data.calendar.dto.NextSessionResponse

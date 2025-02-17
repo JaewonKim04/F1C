@@ -1,6 +1,6 @@
 package com.kong.data.calendar.di
 
-import com.kong.data.calendar.CalendarApi
+import com.kong.data.calendar.api.CalendarApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
