@@ -1,6 +1,6 @@
 package com.kong.domain.calendar.repository
 
-import com.kong.common.Session
+import com.kong.domain.common.Session
 import java.time.LocalDate
 import java.time.YearMonth
 

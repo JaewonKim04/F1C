@@ -16,9 +16,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.kong.common.Session
-import com.kong.common.SessionType
-import com.kong.common.fake.FakeSession
+import com.kong.domain.common.Session
+import com.kong.domain.common.SessionType
+import com.kong.domain.common.fake.FakeSession
 import com.kong.ui.calendar.model.CalendarWeek.Companion.getCalendarWeek
 import com.kong.ui.core.component.Spacer
 import com.kong.ui.core.theme.Bold18

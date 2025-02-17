@@ -1,6 +1,6 @@
-package com.kong.result.model
+package com.kong.domain.result.model
 
-import com.kong.common.Driver
+import com.kong.domain.common.Driver
 import java.time.LocalDateTime
 
 data class DriverResult(

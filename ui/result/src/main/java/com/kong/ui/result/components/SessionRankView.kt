@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.kong.result.model.DriverResult
+import com.kong.domain.result.model.DriverResult
 import com.kong.ui.core.component.Spacer
 import com.kong.ui.result.components.item.DriverResultItem
 

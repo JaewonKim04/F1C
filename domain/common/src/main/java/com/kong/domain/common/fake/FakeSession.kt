@@ -1,7 +1,7 @@
-package com.kong.common.fake
+package com.kong.domain.common.fake
 
-import com.kong.common.Session
-import com.kong.common.SessionType
+import com.kong.domain.common.Session
+import com.kong.domain.common.SessionType
 import java.time.LocalDateTime
 
 object FakeSession {

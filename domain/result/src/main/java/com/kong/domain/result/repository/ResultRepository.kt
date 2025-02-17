@@ -1,8 +1,8 @@
-package com.kong.result.repository
+package com.kong.domain.result.repository
 
-import com.kong.result.model.DriverResult
-import com.kong.result.model.LastSessionResultSummary
-import com.kong.result.model.SessionResult
+import com.kong.domain.result.model.DriverResult
+import com.kong.domain.result.model.LastSessionResultSummary
+import com.kong.domain.result.model.SessionResult
 
 interface ResultRepository {
 

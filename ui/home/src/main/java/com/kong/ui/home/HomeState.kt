@@ -1,7 +1,7 @@
 package com.kong.ui.home
 
-import com.kong.common.Session
-import com.kong.result.model.LastSessionResultSummary
+import com.kong.domain.common.Session
+import com.kong.domain.result.model.LastSessionResultSummary
 
 data class HomeState(
     val lastSessionResultSummary: LastSessionResultSummary? = null,

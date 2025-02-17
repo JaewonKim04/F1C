@@ -21,7 +21,7 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.kong.kong.core.R
-import com.kong.result.model.DriverResult
+import com.kong.domain.result.model.DriverResult
 import com.kong.ui.core.component.Spacer
 import com.kong.ui.core.theme.Bold16
 import com.kong.ui.core.theme.Regular12

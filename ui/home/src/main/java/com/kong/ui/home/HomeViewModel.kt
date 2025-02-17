@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.kong.domain.calendar.usecase.GetNextSessionUseCase
 import com.kong.domain.core.onComplete
 import com.kong.domain.core.onSuccess
-import com.kong.result.usecase.GetLastSessionResultSummaryUseCase
+import com.kong.domain.result.usecase.GetLastSessionResultSummaryUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import org.orbitmvi.orbit.Container
 import org.orbitmvi.orbit.ContainerHost

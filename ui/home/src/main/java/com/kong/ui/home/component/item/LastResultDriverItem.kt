@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.kong.result.model.DriverResult
+import com.kong.domain.result.model.DriverResult
 import com.kong.ui.core.component.Spacer
 import com.kong.ui.core.theme.Bold16
 import com.kong.ui.core.theme.Regular12

@@ -18,9 +18,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.kong.common.Driver
+import com.kong.domain.common.Driver
 import com.kong.kong.core.R
-import com.kong.result.model.DriverResult
+import com.kong.domain.result.model.DriverResult
 import com.kong.ui.core.component.Spacer
 import com.kong.ui.core.theme.Bold18
 import com.kong.ui.core.theme.Regular12

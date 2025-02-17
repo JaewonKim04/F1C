@@ -1,7 +1,7 @@
 package com.kong.ui.result
 
-import com.kong.result.model.DriverResult
-import com.kong.result.model.SessionResult
+import com.kong.domain.result.model.DriverResult
+import com.kong.domain.result.model.SessionResult
 import com.kong.ui.result.components.ResultType
 
 data class SessionResultState(

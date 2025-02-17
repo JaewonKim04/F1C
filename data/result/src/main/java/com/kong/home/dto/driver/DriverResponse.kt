@@ -1,6 +1,6 @@
 package com.kong.home.dto.driver
 
-import com.kong.common.Driver
+import com.kong.domain.common.Driver
 
 data class DriverResponse(
     val season: Int?,

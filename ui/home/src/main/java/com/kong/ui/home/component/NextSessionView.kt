@@ -17,7 +17,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.kong.common.Session
+import com.kong.domain.common.Session
 import com.kong.kong.core.R
 import com.kong.ui.core.component.Spacer
 import com.kong.ui.core.theme.Bold16

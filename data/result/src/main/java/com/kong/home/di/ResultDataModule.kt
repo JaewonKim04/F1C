@@ -3,7 +3,7 @@ package com.kong.home.di
 import com.kong.home.datasource.ResultRemoteDataSource
 import com.kong.home.datasource.ResultRemoteDataSourceImpl
 import com.kong.home.repository.ResultRepositoryImpl
-import com.kong.result.repository.ResultRepository
+import com.kong.domain.result.repository.ResultRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

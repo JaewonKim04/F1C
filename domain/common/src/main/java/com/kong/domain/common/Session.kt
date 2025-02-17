@@ -1,4 +1,4 @@
-package com.kong.common
+package com.kong.domain.common
 
 import java.time.LocalDateTime
 

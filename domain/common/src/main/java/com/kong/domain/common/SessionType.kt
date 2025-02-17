@@ -1,4 +1,4 @@
-package com.kong.common
+package com.kong.domain.common
 
 enum class SessionType(val displayName: String, val value: String) {
 

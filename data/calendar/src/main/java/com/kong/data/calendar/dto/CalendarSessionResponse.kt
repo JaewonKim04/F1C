@@ -1,7 +1,7 @@
 package com.kong.data.calendar.dto
 
-import com.kong.common.Session
-import com.kong.common.SessionType
+import com.kong.domain.common.Session
+import com.kong.domain.common.SessionType
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 

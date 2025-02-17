@@ -1,6 +1,6 @@
 package com.kong.data.calendar.repository
 
-import com.kong.common.Session
+import com.kong.domain.common.Session
 import com.kong.data.calendar.datasource.CalendarRemoteDataSource
 import com.kong.data.calendar.dto.toModel
 import com.kong.domain.calendar.repository.CalendarRepository

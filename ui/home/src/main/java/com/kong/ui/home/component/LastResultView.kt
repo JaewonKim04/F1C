@@ -25,7 +25,7 @@ import com.kong.ui.core.theme.black
 import com.kong.ui.core.theme.darkGray
 import com.kong.ui.core.theme.lightGray
 import com.kong.ui.core.theme.white
-import com.kong.result.model.LastSessionResultSummary
+import com.kong.domain.result.model.LastSessionResultSummary
 import com.kong.kong.core.R
 import com.kong.ui.home.component.item.LastResultDriverItem
 

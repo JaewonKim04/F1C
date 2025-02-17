@@ -1,6 +1,6 @@
 package com.kong.home.dto.driver
 
-import com.kong.result.model.DriverResult
+import com.kong.domain.result.model.DriverResult
 
 data class DriverResultResponse(
     val driver: DriverResponse?,

@@ -1,6 +1,6 @@
-package com.kong.result.model
+package com.kong.domain.result.model
 
-import com.kong.common.Session
+import com.kong.domain.common.Session
 
 data class SessionResult(
     val session: Session,

@@ -2,9 +2,9 @@ package com.kong.ui.result
 
 import androidx.lifecycle.ViewModel
 import com.kong.domain.core.onSuccess
-import com.kong.result.usecase.GetFastestDriverResultsUseCase
-import com.kong.result.usecase.GetSessionByKeyUseCase
-import com.kong.result.usecase.GetSessionSummariesUseCase
+import com.kong.domain.result.usecase.GetFastestDriverResultsUseCase
+import com.kong.domain.result.usecase.GetSessionByKeyUseCase
+import com.kong.domain.result.usecase.GetSessionSummariesUseCase
 import com.kong.ui.result.components.ResultType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import org.orbitmvi.orbit.Container

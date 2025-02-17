@@ -1,6 +1,6 @@
-package com.kong.result.model
+package com.kong.domain.result.model
 
-import com.kong.common.SessionType
+import com.kong.domain.common.SessionType
 
 data class LastSessionResultSummary(
     val season: Int,

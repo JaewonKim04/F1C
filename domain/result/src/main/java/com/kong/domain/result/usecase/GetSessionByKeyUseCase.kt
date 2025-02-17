@@ -1,9 +1,9 @@
-package com.kong.result.usecase
+package com.kong.domain.result.usecase
 
 import com.kong.domain.core.ResResult
 import com.kong.domain.core.wrapAsResult
-import com.kong.result.model.SessionResult
-import com.kong.result.repository.ResultRepository
+import com.kong.domain.result.model.SessionResult
+import com.kong.domain.result.repository.ResultRepository
 import javax.inject.Inject
 
 class GetSessionByKeyUseCase @Inject constructor(

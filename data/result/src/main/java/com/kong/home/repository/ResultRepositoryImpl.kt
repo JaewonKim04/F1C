@@ -1,11 +1,11 @@
 package com.kong.home.repository
 
-import com.kong.common.SessionType
+import com.kong.domain.common.SessionType
 import com.kong.home.datasource.ResultRemoteDataSource
-import com.kong.result.model.DriverResult
-import com.kong.result.model.LastSessionResultSummary
-import com.kong.result.model.SessionResult
-import com.kong.result.repository.ResultRepository
+import com.kong.domain.result.model.DriverResult
+import com.kong.domain.result.model.LastSessionResultSummary
+import com.kong.domain.result.model.SessionResult
+import com.kong.domain.result.repository.ResultRepository
 import javax.inject.Inject
 
 class ResultRepositoryImpl @Inject constructor(
