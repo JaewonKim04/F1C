@@ -26,7 +26,7 @@ fun ContentLoadingView(height: Dp = 20.dp) {
         modifier = Modifier
             .shimmer()
             .background(lightGray)
-            .size(width = 100.dp, height = 20.dp)
+            .size(width = 100.dp, height = height)
     )
 }
 
