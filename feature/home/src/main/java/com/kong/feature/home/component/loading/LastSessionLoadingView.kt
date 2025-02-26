@@ -1,0 +1,70 @@
+package com.kong.feature.home.component.loading
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.kong.feature.core.component.ContentLoadingView
+import com.kong.feature.core.component.DescriptionLoadingView
+import com.kong.feature.core.component.Spacer
+import com.kong.feature.core.component.TitleLoadingView
+import com.kong.feature.core.theme.Regular14
+import com.kong.feature.core.theme.lightGray
+import com.kong.feature.core.theme.white
+
+@Composable
+fun LastSessionLoadingView() {
+    Column(
+        modifier = Modifier
+            .background(color = white, shape = RoundedCornerShape(16.dp))
+            .clip(RoundedCornerShape(16.dp))
+            .padding(16.dp)
+    ) {
+        Row(
+            modifier = Modifier,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = "🏁",
+                fontSize = 40.sp
+            )
+            Spacer(5.dp)
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = "지난경기",
+                    style = Regular14,
+                    color = lightGray
+                )
+                Spacer(3.dp)
+                TitleLoadingView()
+                Spacer(3.dp)
+                ContentLoadingView()
+            }
+        }
+
+        Spacer(10.dp)
+        repeat(3) {
+            Column {
+                ContentLoadingView(height = 15.dp)
+                Spacer(3.dp)
+                DescriptionLoadingView()
+                Spacer(dp = 8.dp)
+            }
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun LastResultLoadingViewPreview() {
+    LastSessionLoadingView()
+}

@@ -20,17 +20,19 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "F1C"
-include(":app")
-include(":ui:home")
-include(":data:result")
-include(":domain:common")
-include(":ui:core")
-include(":ui:result")
-include(":domain:result")
-include(":navigate")
-include(":network")
-include(":ui:calendar")
-include(":domain:calendar")
-include(":data:calendar")
-include(":domain:core")
-include(":data:core")
+include(
+    ":app",
+    ":feature:home",
+    ":feature:core",
+    ":feature:result",
+    ":feature:calendar",
+    ":data:result",
+    ":data:calendar",
+    ":domain:core",
+    ":domain:common",
+    ":domain:result",
+    ":domain:calendar",
+    ":navigate",
+    ":network",
+    ":data:core"
+)

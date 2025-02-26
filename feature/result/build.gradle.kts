@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.hilt.android)
@@ -7,20 +7,14 @@ plugins {
 }
 
 android {
-    namespace = "com.kong.f1c"
+    namespace = "com.kong.feature.result"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.kong.f1c"
         minSdk = 26
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -39,37 +33,26 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
-    }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
 }
 
 dependencies {
-
-    implementation(project(":network"))
-    implementation(project(":data:calendar"))
-    implementation(project(":data:result"))
     implementation(project(":navigate"))
 
     implementation(project(":feature:core"))
-    implementation(project(":feature:home"))
-    implementation(project(":feature:result"))
-    implementation(project(":feature:calendar"))
+
+    implementation(project(":domain:result"))
 
     implementation(libs.bundles.android)
     implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.compose.navigation)
     implementation(platform(libs.androidx.compose.bom))
+
+    implementation(libs.androidx.compose.navigation)
 
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation)
     kapt(libs.hilt.compiler)
+
+    implementation(libs.bundles.orbit)
+
+    implementation(libs.coil.compose)
 }

@@ -11,9 +11,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.kong.navigate.NavScreens
-import com.kong.ui.calendar.CalendarScreen
-import com.kong.ui.home.HomeScreen
-import com.kong.ui.result.SessionResultScreen
+import com.kong.feature.calendar.CalendarScreen
+import com.kong.feature.home.HomeScreen
+import com.kong.feature.result.SessionResultScreen
 
 @Composable
 fun MainScreen() {
