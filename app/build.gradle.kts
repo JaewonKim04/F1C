@@ -60,10 +60,6 @@ dependencies {
     implementation(project(":navigate"))
     implementation(project(":core:ui"))
 
-    implementation(project(":feature:home"))
-    implementation(project(":feature:result"))
-    implementation(project(":feature:calendar"))
-
     implementation(libs.bundles.android)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.navigation)
