@@ -58,8 +58,8 @@ dependencies {
     implementation(project(":data:calendar"))
     implementation(project(":data:result"))
     implementation(project(":navigate"))
+    implementation(project(":core:ui"))
 
-    implementation(project(":feature:core"))
     implementation(project(":feature:home"))
     implementation(project(":feature:result"))
     implementation(project(":feature:calendar"))

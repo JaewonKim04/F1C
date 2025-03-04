@@ -37,8 +37,7 @@ android {
 
 dependencies {
     implementation(project(":navigate"))
-
-    implementation(project(":feature:core"))
+    implementation(project(":core:ui"))
 
     implementation(project(":domain:result"))
 

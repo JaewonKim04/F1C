@@ -34,7 +34,7 @@ android {
 }
 
 dependencies {
-    api(project(":domain:core"))
+    api(project(":core:domain"))
     api(project(":domain:common"))
 
     implementation(libs.hilt.android)
