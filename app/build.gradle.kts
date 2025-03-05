@@ -53,6 +53,9 @@ android {
 }
 
 dependencies {
+    implementation(project(":feature:home"))
+    implementation(project(":feature:result"))
+    implementation(project(":feature:calendar"))
 
     implementation(project(":network"))
     implementation(project(":data:calendar"))

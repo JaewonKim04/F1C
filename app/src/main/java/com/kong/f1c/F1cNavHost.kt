@@ -1,4 +1,4 @@
-package com.kong.navigate
+package com.kong.f1c
 
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.core.tween
@@ -13,6 +13,7 @@ import androidx.navigation.navArgument
 import com.kong.feature.calendar.CalendarScreen
 import com.kong.feature.home.HomeScreen
 import com.kong.feature.result.SessionResultScreen
+import com.kong.navigate.NavScreens
 
 @Composable
 fun F1cNavHost() {
