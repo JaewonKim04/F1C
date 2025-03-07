@@ -1,4 +1,4 @@
-package com.kong.f1c.ui
+package com.kong.f1c.main
 
 import androidx.compose.runtime.Composable
 import com.kong.f1c.navhost.F1cNavHost

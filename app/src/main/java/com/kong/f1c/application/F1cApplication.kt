@@ -1,4 +1,4 @@
-package com.kong.f1c
+package com.kong.f1c.application
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

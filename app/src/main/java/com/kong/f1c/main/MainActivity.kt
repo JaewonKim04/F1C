@@ -1,9 +1,8 @@
-package com.kong.f1c
+package com.kong.f1c.main
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import com.kong.f1c.ui.MainScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
