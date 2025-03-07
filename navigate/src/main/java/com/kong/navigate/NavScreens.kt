@@ -1,7 +1,14 @@
 package com.kong.navigate
 
-enum class NavScreens(val route: String) {
-    HOME("home"),
-    SESSION_RESULT("session_result/{season}/{round}"),
-    CALENDAR("calendar")
+import kotlinx.serialization.Serializable
+
+sealed interface NavScreens {
+    @Serializable
+    data object Home : NavScreens
+
+    @Serializable
+    data class SessionResult(val season: Int, val round: Int) : NavScreens
+
+    @Serializable
+    data object Calendar : NavScreens
 }

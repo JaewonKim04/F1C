@@ -19,21 +19,21 @@ import com.kong.feature.result.components.SessionRankView
 import com.kong.feature.result.components.ResultType
 import com.kong.feature.result.components.SessionView
 import com.kong.feature.result.components.tab.SessionResultTabRow
+import com.kong.navigate.NavScreens
 import org.orbitmvi.orbit.compose.collectAsState
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun SessionResultScreen(
-    season: Int,
-    round: Int,
+    args: NavScreens.SessionResult,
     navController: NavController,
     viewModel: SessionResultViewModel = hiltViewModel()
 ) {
 
     LaunchedEffect(Unit) {
         viewModel.start(
-            season = season,
-            round = round
+            season = args.season,
+            round = args.round
         )
     }
 

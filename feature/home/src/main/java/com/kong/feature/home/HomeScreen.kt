@@ -1,7 +1,6 @@
 package com.kong.feature.home
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.kong.navigate.NavScreens
@@ -16,18 +15,15 @@ fun HomeScreen(
         when (it) {
             is HomeSideEffect.StartSessionResult -> {
                 navController.navigate(
-                    NavScreens.SESSION_RESULT.route.replace(
-                        oldValue = "{season}",
-                        newValue = it.season.toString()
-                    ).replace(
-                        oldValue = "{round}",
-                        newValue = it.round.toString()
+                    NavScreens.SessionResult(
+                        season = it.season,
+                        round = it.round
                     )
                 )
             }
 
             is HomeSideEffect.StartCalendar -> {
-                navController.navigate(NavScreens.CALENDAR.route)
+                navController.navigate(NavScreens.Calendar)
             }
         }
     }
